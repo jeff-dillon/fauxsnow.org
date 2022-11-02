@@ -4,7 +4,8 @@ html, body, .viewport {
     margin: 0;
 }
 
-html {  
+html { 
+    background: url(snow.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

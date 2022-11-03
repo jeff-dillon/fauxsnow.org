@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:fauxsnow.org}/instance/fauxsnow.sqlite",
+            "name": "fs"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

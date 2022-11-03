@@ -1,0 +1,5 @@
+INSERT INTO resorts (resort_id, resort_name, logo_file_name, state_full, state_short, address_full, lat, lon, main_url, conditions_url, map_url, acres, trails, lifts, vertical)
+VALUES ('paoli-peaks','Paoli Peaks','paoli-peaks-logo.svg','Indiana','IN','2798 W. County Road 25 S, Paoli, IN 47454','38.5574763058665','-86.50665478920111','https://www.paolipeaks.com/','https://www.paolipeaks.com/the-mountain/mountain-conditions/lift-and-terrain-status.aspx','https://goo.gl/maps/aA5bWk8ppQsCMBBK9','65','17','8','300');
+
+INSERT INTO resorts (resort_id, resort_name, logo_file_name, state_full, state_short, address_full, lat, lon, main_url, conditions_url, map_url, acres, trails, lifts, vertical)
+VALUES ('wolf-ridge','Wolf Ridge Ski Resort','wolf-ridge-logo.png','North Carolina','NC','578 Valley View Circle Mars Hill, NC 28754','36.02153540770578','-82.48665163158509','https://skiwolfridgenc.com/','https://skiwolfridgenc.com/the-mountain/snow-report','https://goo.gl/maps/VP2U6nfb4DYPiyvZ8','82','15','5','700');

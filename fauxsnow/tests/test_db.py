@@ -31,9 +31,12 @@ def test_get_resorts(app):
         db = get_db()
         resorts = get_resorts()
         assert len(resorts) == 2
+        assert resorts[0]['state_short'] == 'IN'
+        assert resorts[1]['state_short'] == 'NC'
 
 def test_get_resort(app):
     with app.app_context():
         db = get_db()
         resort = get_resort_by_id('paoli-peaks')
         assert resort['state_short'] == 'IN'
+        assert resort['sum_forecast_snow'] == 2

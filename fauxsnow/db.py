@@ -39,15 +39,18 @@ def init_db(load_data=True):
     db = get_db()
 
     # create the database tables
+    click.echo('creating database tables')
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
     
     if load_data:
         # load the resorts data
+        click.echo('loading resorts')
         resorts = pd.read_csv(current_app.open_resource('data/resorts.csv'), quotechar="'")
         resorts.to_sql('resorts', get_db(), if_exists="append", index=False)
 
         # load the weather data
+        click.echo('loading weather forecasts')
         foreacsts = asyncio.run(weather.get_weather())
         records = []
         for forecast in foreacsts:
@@ -134,8 +137,9 @@ def get_resort_by_id(resort_id:str) -> Row:
 @click.command('init-db')
 def init_db_command():
     """Clear the existing data and create new tables."""
+    click.echo('starting databse initialization')
     init_db()
-    click.echo('Initialized the database.')
+    click.echo('finished database initialization')
 
 def init_app(app):
     app.teardown_appcontext(close_db)

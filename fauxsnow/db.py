@@ -55,12 +55,15 @@ def init_db(load_data=True):
         records = []
         for forecast in foreacsts:
 
+            # save the raw json to the database
+            save_raw_forecast(forecast['resort_id'], forecast['current_weather']['time'], forecast)
+
             # load the data into a new dictionary
             record = {}
             record['resort_id'] = forecast['resort_id']
             record['forecast_time'] = forecast['current_weather']['time']
             record['sum_historic_faux_days'] = weather.get_historic()
-            record['sum_forecast_snow'] = sum(forecast['daily']['snowfall_sum'])
+            record['sum_forecast_snow'] = sum(forecast['daily']['snowfall_sum']) * 0.393701
 
             # add the forecast periods
             for i in range(3,10):
@@ -133,6 +136,17 @@ def get_resort_by_id(resort_id:str) -> Row:
         (resort_id,)
     ).fetchone()
     return resort
+
+def save_raw_forecast(resort_id, forecast_time, forecast):
+    db = get_db()
+    db.execute(
+        '''
+        INSERT INTO raw_forecasts 
+        (resort_id, forecast_time, forecast_data) 
+        VALUES (?, ?, ?)
+        ''',
+    (resort_id, forecast_time, str(forecast)))
+    db.commit()
 
 @click.command('init-db')
 def init_db_command():

@@ -77,3 +77,11 @@ CREATE TABLE forecasts (
     fp7_fs_conditions           VARCHAR(8),
     FOREIGN KEY (resort_id) REFERENCES resorts(resort_id)
 );
+
+DROP TABLE IF EXISTS raw_forecasts;
+
+CREATE TABLE raw_forecasts (
+    resort_id                   VARCHAR(80),
+    forecast_time               VARCHAR(20),
+    forecast_data               TEXT
+);

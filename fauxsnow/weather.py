@@ -44,7 +44,10 @@ async def get_weather() -> list:
 
 
 # TODO implement
-def get_historic():
+def get_historic(forecast):
+    resort_open = int(forecast['resort_open'])
+    if(not resort_open):
+        return 0
     return 3
 
 
@@ -102,6 +105,13 @@ def get_conditions(code: int) -> str:
     weather_codes = get_weather_codes()
     return weather_codes[str(code)]
 
+
+
+def cm_to_inch(value):
+    """
+    Returns a value given in centimeters converted to inches 
+    """
+    return value * 0.393701
 
 
 def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weathercode: str, resort_open: int, snowfall_sum: float) -> str:

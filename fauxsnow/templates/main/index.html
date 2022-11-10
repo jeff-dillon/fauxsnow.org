@@ -9,7 +9,7 @@
     </div>
     <div class="legend-box">
         <div class="content-header-buttons">
-            Filter: <button class="content-header-button-active">All</button><button class="content-header-button-inactive">Favorites</button>
+            Filter: <button class="content-header-button-active">All</button><button class="content-header-button-inactive">Open</button><button class="content-header-button-inactive">Favorites</button>
         </div>
         <ul>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="image-icon" viewBox="0 0 16 16">
@@ -47,19 +47,19 @@
     </div>
     <div class="box-body">
         <div class="box-body-left">
+            <div class="forecast-header"><strong>Last 3 Days</strong></div>
             <table>
                 <tr>
-                    <td class="amount">{{ resort['sum_forecast_snow'] }}</td>
+                    <td class="amount">{{ resort['sum_historic_snow'] }}"</td>
                     <td class="amount">{{ resort['sum_historic_faux_days'] }}</td>
                 </tr>
                 <tr>
                     <td class="measure">inches <br/> snow</td>
-                    <td class="measure">days <br/> snowmaking</td>
+                    <td class="measure">days of<br/> snowmaking</td>
                 </tr>
                 <tr>
                     <td class="footnote" colspan="2">
                         <br/>
-                        <p>Last 72 Hrs</p>
                         {% if resort['resort_open'] == 0 %}
                         <p class="resort-closed">Status: Closed</p>
                         {% else %}
@@ -69,7 +69,11 @@
                 </tr>
             </table>
         </div>
-        <div class="box-body-right"><strong>7 Day Forecast</strong>
+        <div class="box-body-right">
+            <div class="forecast-header">
+                <strong>Next 5 Days</strong>
+                <div class="forecast-snow">{{ resort['sum_forecast_snow'] }}"</div>
+            </div>
             <table>
                 <tr class="large-forecast">
                     <td class="forecast">{{ render_icon(resort['fp1_fs_conditions'], '30') }}</td>
@@ -78,7 +82,6 @@
                     <td class="forecast">{{ render_icon(resort['fp4_fs_conditions'], '30') }}</td>
                     <td class="forecast">{{ render_icon(resort['fp5_fs_conditions'], '30') }}</td>
                     <td class="forecast">{{ render_icon(resort['fp6_fs_conditions'], '30') }}</td>
-                    <td class="forecast">{{ render_icon(resort['fp7_fs_conditions'], '30') }}</td>
                 </tr>
                 <tr class="small-forecast">
                     <td class="forecast">{{ render_icon(resort['fp1_fs_conditions'], '20') }}</td>
@@ -87,7 +90,6 @@
                     <td class="forecast">{{ render_icon(resort['fp4_fs_conditions'], '20') }}</td>
                     <td class="forecast">{{ render_icon(resort['fp5_fs_conditions'], '20') }}</td>
                     <td class="forecast">{{ render_icon(resort['fp6_fs_conditions'], '20') }}</td>
-                    <td class="forecast">{{ render_icon(resort['fp7_fs_conditions'], '20') }}</td>
                 </tr>
                 <tr class="large-forecast">
                     <td class="temp">{{ resort['fp1_max_temp'] }} / {{ resort['fp1_min_temp'] }}</td>
@@ -96,7 +98,6 @@
                     <td class="temp">{{ resort['fp4_max_temp'] }} / {{ resort['fp4_min_temp'] }}</td>
                     <td class="temp">{{ resort['fp5_max_temp'] }} / {{ resort['fp5_min_temp'] }}</td>
                     <td class="temp">{{ resort['fp6_max_temp'] }} / {{ resort['fp6_min_temp'] }}</td>
-                    <td class="temp">{{ resort['fp7_max_temp'] }} / {{ resort['fp7_min_temp'] }}</td>
                 </tr>
                 <tr class="large-forecast">
                     <td class="day">{{ resort['fp1_day_long'] }}</td>
@@ -105,7 +106,6 @@
                     <td class="day">{{ resort['fp4_day_long'] }}</td>
                     <td class="day">{{ resort['fp5_day_long'] }}</td>
                     <td class="day">{{ resort['fp6_day_long'] }}</td>
-                    <td class="day">{{ resort['fp7_day_long'] }}</td>
                 </tr>
                 <tr class="small-forecast">
                     <td class="day">{{ resort['fp1_day_short'] }}</td>
@@ -114,7 +114,6 @@
                     <td class="day">{{ resort['fp4_day_short'] }}</td>
                     <td class="day">{{ resort['fp5_day_short'] }}</td>
                     <td class="day">{{ resort['fp6_day_short'] }}</td>
-                    <td class="day">{{ resort['fp7_day_short'] }}</td>
                 </tr>
             </table>
 

@@ -26,6 +26,7 @@ CREATE TABLE forecasts (
     forecast_time               VARCHAR(20),
     sum_historic_faux_days      REAL,
     sum_forecast_snow           REAL,
+    sum_historic_snow           REAL,
     fp1_date                    VARCHAR(20),
     fp1_day_short               VARCHAR(3),
     fp1_day_long                VARCHAR(10),

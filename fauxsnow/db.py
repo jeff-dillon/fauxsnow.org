@@ -62,24 +62,25 @@ def init_db(load_data=True):
             record = {}
             record['resort_id'] = forecast['resort_id']
             record['forecast_time'] = forecast['current_weather']['time']
-            record['sum_historic_faux_days'] = weather.get_historic()
-            record['sum_forecast_snow'] = sum(forecast['daily']['snowfall_sum']) * 0.393701
+            record['sum_historic_faux_days'] = weather.get_historic(forecast)
+            record['sum_forecast_snow'] = weather.cm_to_inch(sum(forecast['daily']['snowfall_sum'][4:10]))
+            record['sum_historic_snow'] = weather.cm_to_inch(sum(forecast['daily']['snowfall_sum'][0:3]))
 
             # add the forecast periods
-            for i in range(3,10):
+            for i in range(4,10):
                 
                 # calculate the average dewpoint for each forecast period
                 avg_dewpoint = weather.get_avg_value_by_date(forecast['hourly']['time'], 
                                                             forecast['hourly']['dewpoint_2m'], 
                                                             forecast['daily']['time'][i])
 
-                record[f'fp{i-2}_date'] = forecast['daily']['time'][i]
-                record[f'fp{i-2}_day_short'] = weather.get_short_day(forecast['daily']['time'][i])
-                record[f'fp{i-2}_day_long'] = weather.get_long_day(forecast['daily']['time'][i])
-                record[f'fp{i-2}_max_temp'] = forecast['daily']['temperature_2m_max'][i]
-                record[f'fp{i-2}_min_temp'] = forecast['daily']['temperature_2m_min'][i]
-                record[f'fp{i-2}_conditions'] = weather.get_conditions(forecast['daily']['weathercode'][i])
-                record[f'fp{i-2}_fs_conditions'] = weather.get_fs_conditions(float(avg_dewpoint), 
+                record[f'fp{i-3}_date'] = forecast['daily']['time'][i]
+                record[f'fp{i-3}_day_short'] = weather.get_short_day(forecast['daily']['time'][i])
+                record[f'fp{i-3}_day_long'] = weather.get_long_day(forecast['daily']['time'][i])
+                record[f'fp{i-3}_max_temp'] = forecast['daily']['temperature_2m_max'][i]
+                record[f'fp{i-3}_min_temp'] = forecast['daily']['temperature_2m_min'][i]
+                record[f'fp{i-3}_conditions'] = weather.get_conditions(forecast['daily']['weathercode'][i])
+                record[f'fp{i-3}_fs_conditions'] = weather.get_fs_conditions(float(avg_dewpoint), 
                                                                                 float(forecast['daily']['temperature_2m_max'][i]), 
                                                                                 float(forecast['daily']['temperature_2m_min'][i]), 
                                                                                 forecast['daily']['weathercode'][i], 
@@ -103,7 +104,7 @@ def get_resorts() -> list:
         '''
         SELECT resorts.resort_id, resort_name, logo_file_name, state_full, state_short, address_full, lat, lon, 
         main_url, conditions_url, map_url, acres, trails, lifts, vertical, resort_open, 
-        forecast_time, CAST(sum_historic_faux_days as int) as sum_historic_faux_days, round(sum_forecast_snow, 1) as sum_forecast_snow, 
+        forecast_time, CAST(sum_historic_faux_days as int) as sum_historic_faux_days, round(sum_forecast_snow, 1) as sum_forecast_snow, round(sum_historic_snow, 1) as sum_historic_snow,
         fp1_date, fp1_day_short, fp1_day_long, CAST(fp1_max_temp as int) as fp1_max_temp, CAST(fp1_min_temp as int) as fp1_min_temp, fp1_conditions, fp1_fs_conditions,
         fp2_date, fp2_day_short, fp2_day_long, CAST(fp2_max_temp as int) as fp2_max_temp, CAST(fp2_min_temp as int) as fp2_min_temp, fp2_conditions, fp2_fs_conditions,
         fp3_date, fp3_day_short, fp3_day_long, CAST(fp3_max_temp as int) as fp3_max_temp, CAST(fp3_min_temp as int) as fp3_min_temp, fp3_conditions, fp3_fs_conditions,
@@ -122,7 +123,7 @@ def get_resort_by_id(resort_id:str) -> Row:
         '''
         SELECT resorts.resort_id, resort_name, logo_file_name, state_full, state_short, address_full, lat, lon, 
         main_url, conditions_url, map_url, acres, trails, lifts, vertical, resort_open, 
-        forecast_time, sum_historic_faux_days, sum_forecast_snow, 
+        forecast_time, sum_historic_faux_days, sum_forecast_snow, sum_historic_snow,
         fp1_date, fp1_day_short, fp1_day_long, fp1_max_temp, fp1_min_temp, fp1_conditions, fp1_fs_conditions,
         fp2_date, fp2_day_short, fp2_day_long, fp2_max_temp, fp2_min_temp, fp2_conditions, fp2_fs_conditions,
         fp3_date, fp3_day_short, fp3_day_long, fp3_max_temp, fp3_min_temp, fp3_conditions, fp3_fs_conditions,

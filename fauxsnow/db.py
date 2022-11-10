@@ -100,14 +100,14 @@ def get_resorts() -> list:
         '''
         SELECT resorts.resort_id, resort_name, logo_file_name, state_full, state_short, address_full, lat, lon, 
         main_url, conditions_url, map_url, acres, trails, lifts, vertical, resort_open, 
-        forecast_time, sum_historic_faux_days, sum_forecast_snow, 
-        fp1_date, fp1_day_short, fp1_day_long, fp1_max_temp, fp1_min_temp, fp1_conditions, fp1_fs_conditions,
-        fp2_date, fp2_day_short, fp2_day_long, fp2_max_temp, fp2_min_temp, fp2_conditions, fp2_fs_conditions,
-        fp3_date, fp3_day_short, fp3_day_long, fp3_max_temp, fp3_min_temp, fp3_conditions, fp3_fs_conditions,
-        fp4_date, fp4_day_short, fp4_day_long, fp4_max_temp, fp4_min_temp, fp4_conditions, fp4_fs_conditions,
-        fp5_date, fp5_day_short, fp5_day_long, fp5_max_temp, fp5_min_temp, fp5_conditions, fp5_fs_conditions,
-        fp6_date, fp6_day_short, fp6_day_long, fp6_max_temp, fp6_min_temp, fp6_conditions, fp6_fs_conditions,
-        fp7_date, fp7_day_short, fp7_day_long, fp7_max_temp, fp7_min_temp, fp7_conditions, fp7_fs_conditions
+        forecast_time, CAST(sum_historic_faux_days as int) as sum_historic_faux_days, round(sum_forecast_snow, 1) as sum_forecast_snow, 
+        fp1_date, fp1_day_short, fp1_day_long, CAST(fp1_max_temp as int) as fp1_max_temp, CAST(fp1_min_temp as int) as fp1_min_temp, fp1_conditions, fp1_fs_conditions,
+        fp2_date, fp2_day_short, fp2_day_long, CAST(fp2_max_temp as int) as fp2_max_temp, CAST(fp2_min_temp as int) as fp2_min_temp, fp2_conditions, fp2_fs_conditions,
+        fp3_date, fp3_day_short, fp3_day_long, CAST(fp3_max_temp as int) as fp3_max_temp, CAST(fp3_min_temp as int) as fp3_min_temp, fp3_conditions, fp3_fs_conditions,
+        fp4_date, fp4_day_short, fp4_day_long, CAST(fp4_max_temp as int) as fp4_max_temp, CAST(fp4_min_temp as int) as fp4_min_temp, fp4_conditions, fp4_fs_conditions,
+        fp5_date, fp5_day_short, fp5_day_long, CAST(fp5_max_temp as int) as fp5_max_temp, CAST(fp5_min_temp as int) as fp5_min_temp, fp5_conditions, fp5_fs_conditions,
+        fp6_date, fp6_day_short, fp6_day_long, CAST(fp6_max_temp as int) as fp6_max_temp, CAST(fp6_min_temp as int) as fp6_min_temp, fp6_conditions, fp6_fs_conditions,
+        fp7_date, fp7_day_short, fp7_day_long, CAST(fp7_max_temp as int) as fp7_max_temp, CAST(fp7_min_temp as int) as fp7_min_temp, fp7_conditions, fp7_fs_conditions
         FROM resorts LEFT JOIN forecasts ON resorts.resort_id = forecasts.resort_id
         '''
     ).fetchall()

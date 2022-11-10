@@ -26,6 +26,14 @@ p {
     margin: 0px;
 }
 
+table {
+    width: 100%;
+}
+
+td {
+    padding: 2px 15px 2px 15px;
+}
+
 .layout {
     display: flex;
     flex-direction: column;
@@ -85,11 +93,13 @@ p {
 .content-header {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .content-header-buttons {
     display: flex;
     align-items: center;
+    font-size: medium;
 }
 
 .content-header-button-active {
@@ -121,14 +131,15 @@ p {
     display: flex;
     align-items: flex-start;
     align-content: flex-start;
+    border-bottom: #999 1px solid;
 }
 
 .legend-box {
-    background-color: #eeeeee;
     border: 0px;
     padding: 5px 20px 5px 20px;
     margin: 5px;
     color: black;
+    font-size: small;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -181,26 +192,79 @@ p {
 }
 
 .box-body-left {
-    height: 150px;
-    width: 200px;
-    background-color: #eeeeee;
+    height: 125px;
+    width: 160px;
     margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amount {
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    color:#008cba;
+}
+
+.measure {
+    font-size: small;
+    text-align: center;
+    color:#008cba;
+}
+
+.footnote {
+    font-size: small;
+    text-align: center;
+    font-weight: bold;
+}
+
+.resort-open {
+    color: #44ac6a;
+}
+
+.resort-closed {
+    color: #ef4224;
+}
+
+.forecast {
+    text-align: center;
+}
+
+.day {
+    text-align: center;
+}
+
+.temp {
+    text-align: center;
+    font-size: small;
 }
 
 .box-body-right {
-    background-color: #eeeeee;
+    border-left: #999 1px dotted;
     flex: 1;
-    margin: 2px;
+    margin: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 920px) {
     .header-box, .content-box, .content-title, .content-header, .legend-box {
         width: 90%;
     }
+    .large-forecast {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 920px) {
     .header-box, .content-box, .content-title, .content-header, .legend-box {
         width: 880px;
+    }
+    .small-forecast {
+        display: none;
     }
 }

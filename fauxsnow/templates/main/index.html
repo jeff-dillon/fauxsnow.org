@@ -9,7 +9,7 @@
     </div>
     <div class="legend-box">
         <div class="content-header-buttons">
-            Filter: <button class="content-header-button-active">All</button><button class="content-header-button-inactive">Open</button><button class="content-header-button-inactive">Favorites</button>
+            Filter: <button id="all-btn" class="content-header-button-active">All</button><button id="open-btn" class="content-header-button-inactive">Open</button><button id="fav-btn" class="content-header-button-inactive">Favorites</button>
         </div>
         <ul>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="image-icon" viewBox="0 0 16 16">
@@ -30,7 +30,7 @@
     </div>
 
     {% for resort in resorts %}
-<div class="content-box">
+<div class="content-box resort-box" data-open="{{ resort['resort_open'] }}">
     <div class="box-header">
         <div class="box-header-left">
             <div class="box-header-text">

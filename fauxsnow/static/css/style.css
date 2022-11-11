@@ -275,6 +275,14 @@ td {
     justify-content: space-between;
 }
 
+.hidden {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
+
 @media screen and (max-width: 920px) {
     .header-box, .content-box, .content-title, .content-header, .legend-box {
         width: 90%;

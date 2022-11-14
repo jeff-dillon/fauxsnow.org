@@ -164,7 +164,7 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
     if(weathercode in snow_codes or snowfall_sum >= 0.5):
         return SNOW
 
-    if((weathercode in icy_codes or weathercode in rain_codes) and resort_open):
+    if((weathercode in icy_codes or weathercode in rain_codes or max_temp > 32) and resort_open):
         return ICY
 
     return NOTHING

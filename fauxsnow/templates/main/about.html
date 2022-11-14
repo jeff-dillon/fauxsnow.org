@@ -3,10 +3,32 @@
 {% block title %}FAUXSNOW.ORG{% endblock %}
 
 {% block content %}
-<div class="content">
-    <div class="content-header">
-    <div class="content-title">What is FAUXSNOW?</div>
+<div class="con">
+    <div class="con-hdr">
+        <div class="con-hdr-title">What is FAUXSNOW?</div>
+    </div>
+
+    <div class="info">
+        <div class="info-body">
+                <div class="info-img">
+                <img width="300" src="{{ url_for('static', filename='images/us-average-annual-snowfall.jpg') }}">
+                <img width="300" src="{{ url_for('static', filename='images/average-snowfall-map-key.png') }}">
+                </div>
+                <p class="info-text">Ski resorts in the US Southeast and Midwest historically exist on the edge of the
+                    snowfall zone in North America. Climate change may dramatically impact the number of natural snow 
+                    days in the Southeast and Midwest.</p>
+                <p class="info-text">Skiers increasingly rely on artificial snow and most weather forecasts don’t
+                    predict artificial snowmaking conditions, only natural snowfall. <strong>fauxsnow.org</strong> 
+                    combines both natural and artificial snow forecasts to help plan ski 
+                    trips to resorts in the Southeast and Midwest.</p>
+                <p class="info-text"> </p>
+        </div>
+    </div>
+
+    <div class="alert">Take Action! <a class="alert-link" href="https://protectourwinters.org/">Protect Our Winters</a>
+    </div>
+
 </div>
-</div>
+
 
 {% endblock %}

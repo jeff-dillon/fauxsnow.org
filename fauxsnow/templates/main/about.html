@@ -5,30 +5,241 @@
 {% block content %}
 <div class="con">
     <div class="con-hdr">
-        <div class="con-hdr-title">What is FAUXSNOW?</div>
+        <div class="con-hdr-title">About</div>
     </div>
 
-    <div class="info">
-        <div class="info-body">
-                <div class="info-img">
-                <img width="300" src="{{ url_for('static', filename='images/us-average-annual-snowfall.jpg') }}">
-                <img width="300" src="{{ url_for('static', filename='images/average-snowfall-map-key.png') }}">
-                </div>
-                <p class="info-text">Ski resorts in the US Southeast and Midwest historically exist on the edge of the
-                    snowfall zone in North America. Climate change may dramatically impact the number of natural snow 
-                    days in the Southeast and Midwest.</p>
-                <p class="info-text">Skiers increasingly rely on artificial snow and most weather forecasts don’t
-                    predict artificial snowmaking conditions, only natural snowfall. <strong>fauxsnow.org</strong> 
-                    combines both natural and artificial snow forecasts to help plan ski 
-                    trips to resorts in the Southeast and Midwest.</p>
-                <p class="info-text"> </p>
-        </div>
-    </div>
 
     <div class="alert">Take Action! <a class="alert-link" href="https://protectourwinters.org/">Protect Our Winters</a>
     </div>
 
+    <div class="info">
+        <div class="info-hdr">How to read the forecasts</div>
+        <div class="info-body">
+            <p class="info-text"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="image-icon" viewBox="0 0 16 16">
+                    <path d="M8 7.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1z" />
+                    <path
+                        d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.51l-2.053-1.232-1.348.778-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.883-.237a.5.5 0 1 1 .258-.966l1.85.495L5 9.155v-2.31l-1.4-.808-1.85.495a.5.5 0 1 1-.259-.966l.884-.237-1.12-.646a.5.5 0 0 1 .5-.866l1.12.646-.237-.883a.5.5 0 1 1 .966-.258l.495 1.849 1.348.778L7.5 4.717v-1.51L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.51l2.053 1.232 1.348-.778.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-1.4.808v2.31l1.4.808 1.849-.495a.5.5 0 1 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-1.348-.778L8.5 11.283v1.51l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5zm2-6.783V6.783l-2-1.2-2 1.2v2.434l2 1.2 2-1.2z" />
+                </svg> snow forecasted</p>
+            <p class="info-text"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="image-icon" viewBox="0 0 16 16">
+                    <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585A1.5 1.5 0 0 1 5 12.5z" />
+                    <path
+                        d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 0 1 .708.708L9 5.207v1.927l1.669-.963.495-1.85a.5.5 0 1 1 .966.26l-.237.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.884.237a.5.5 0 1 1-.26.966l-1.848-.495L9.5 8l1.669.963 1.849-.495a.5.5 0 1 1 .258.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.237.883a.5.5 0 1 1-.966.258L10.67 9.83 9 8.866v1.927l1.354 1.353a.5.5 0 0 1-.708.708L9 12.207V13.5a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5z" />
+                </svg> conditions are good for snowmaking</p>
+            <p class="info-text"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red"
+                    class="image-icon" viewBox="0 0 16 16">
+                    <path
+                        d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                    <path
+                        d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+                </svg> icy conditions</p>
+            </ul>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-hdr">Why was this built?</div>
+        <div class="info-body">
+            <div class="info-img-box">
+                <img class="info-img" src="{{ url_for('static', filename='images/us-average-annual-snowfall.jpg') }}">
+                <img class="info-img" src="{{ url_for('static', filename='images/average-snowfall-map-key.png') }}">
+            </div>
+            <p class="info-text">Ski resorts in the US Southeast and Midwest get a modest amount of snowfall, even
+                in good years. Climate change could have an outsized impact on these resorts and make natural snow
+                days even more infrequent.</p>
+            <p class="info-text">These resorts rely mainly on artificial snow, but most weather forecasts don't
+                predict artificial snowmaking conditions, only natural snowfall. <strong>fauxsnow.org</strong>
+                combines both natural and artificial snow forecasts to help you find the best conditions.</p>
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-hdr">Resorts</div>
+        <div class="info-body">
+            <div class="info-resort-list">
+                <div class="info-resort-column">
+                    <p><strong>Indiana</strong>
+                    <ul>
+                        <li>Perfect North Slopes</li>
+                        <li>Paoli Peaks</li>
+                    </ul>
+                    </p>
+                    <p><strong>Tennessee</strong>
+                    <ul>
+                        <li>Ober Gatlinburg</li>
+                    </ul>
+                    </p>
+                    <p><strong>West Virginia</strong>
+                    <ul>
+                        <li>Winterplace</li>
+                        <li>Snowshoe Mountain</li>
+                        <li>Canaan Valley</li>
+                        <li>Timberline</li>
+                    </ul>
+                    </p>
+                    <p><strong>North Carolina</strong>
+                    <ul>
+                        <li>Cataloochee</li>
+                        <li>Beech Mountain</li>
+                        <li>Sugar Mountain</li>
+                        <li>Appalachian Ski Mountain</li>
+                        <li>Sapphire Valley</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="info-resort-column">
+                    <p><strong>Virginia</strong>
+                    <ul>
+                        <li>Wintergreen</li>
+                        <li>Bryce</li>
+                        <li>Massanutten</li>
+                    </ul>
+                    </p>
+                    <p><strong>Maryland</strong>
+                    <ul>
+                        <li>Wisp</li>
+                    </ul>
+                    </p>
+                    <p><strong>Missouri</strong>
+                    <ul>
+                        <li>Hidden Valley (MO)</li>
+                        <li>Snow Creek (MO)</li>
+                    </ul>
+                    </p>
+                    <p><strong>Ohio</strong>
+                    <ul>
+                        <li>Snow Trails</li>
+                        <li>Mad River Mountain</li>
+                        <li>Boston Mills Brandywine</li>
+                        <li>Alpine Valley (OH)</li>
+                    </ul>
+                    </p>
+                    <p><strong>Illinois</strong>
+                    <ul>
+                        <li>Snow Star</li>
+                        <li>Chestnut Mountain Resort</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="info">
+        <div class="info-hdr">What makes good snowmaking conditions?</div>
+        <div class="info-body">
+            <p class="info-text">Good snow-making conditions require wet-bulb temperatures of
+                20(F) or below. Wet-bulb temperature is a function of Temperature and Relative Humidity as shown
+                in the table below.</p>
+
+                <p><strong>Wet Bulb Temperature Chart</strong></p>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th colspan="12" style="text-align: center;">Relative Humidity</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>10%</th>
+                        <th>20%</th>
+                        <th>30%</th>
+                        <th>40%</th>
+                        <th>50%</th>
+                        <th>60%</th>
+                        <th>70%</th>
+                        <th>80%</th>
+                        <th>90%</th>
+                        <th>100%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="info-table-label"><strong>20 (F)</strong></td>
+                        <td class="info-value-good"><strong>14</strong></td>
+                        <td class="info-value-good"><strong>14</strong></td>
+                        <td class="info-value-good"><strong>15</strong></td>
+                        <td class="info-value-good"><strong>16</strong></td>
+                        <td class="info-value-good"><strong>16</strong></td>
+                        <td class="info-value-good"><strong>17</strong></td>
+                        <td class="info-value-good"><strong>18</strong></td>
+                        <td class="info-value-good"><strong>19</strong></td>
+                        <td class="info-value-good"><strong>19</strong></td>
+                        <td class="info-value-good"><strong>20</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="info-table-label"><strong>22 (F)</strong></td>
+                        <td class="info-value-good"><strong>15</strong></td>
+                        <td class="info-value-good"><strong>15</strong></td>
+                        <td class="info-value-good"><strong>17</strong></td>
+                        <td class="info-value-good"><strong>17</strong></td>
+                        <td class="info-value-good"><strong>18</strong></td>
+                        <td class="info-value-good"><strong>19</strong></td>
+                        <td class="info-value-good"><strong>20</strong></td>
+                        <td class="info-value-bad">21</td>
+                        <td class="info-value-bad">21</td>
+                        <td class="info-value-bad">22</td>
+                    </tr>
+                    <tr>
+                        <td class="info-table-label"><strong>24 (F)</strong></td>
+                        <td class="info-value-good"><strong>17</strong></td>
+                        <td class="info-value-good"><strong>18</strong></td>
+                        <td class="info-value-good"><strong>18</strong></td>
+                        <td class="info-value-good"><strong>19</strong></td>
+                        <td class="info-value-good"><strong>20</strong></td>
+                        <td class="info-value-bad">21</td>
+                        <td class="info-value-bad">22</td>
+                        <td class="info-value-bad">22</td>
+                        <td class="info-value-bad">23</td>
+                        <td class="info-value-bad">24</td>
+                    </tr>
+                    <tr>
+                        <td class="info-table-label"><strong>26 (F)</strong></td>
+                        <td class="info-value-good"><strong>18</strong></td>
+                        <td class="info-value-good"><strong>19</strong></td>
+                        <td class="info-value-good"><strong>20</strong></td>
+                        <td class="info-value-bad">21</td>
+                        <td class="info-value-bad">22</td>
+                        <td class="info-value-bad">23</td>
+                        <td class="info-value-bad">23</td>
+                        <td class="info-value-bad">24</td>
+                        <td class="info-value-bad">25</td>
+                        <td class="info-value-bad">26</td>
+                    </tr>
+                    <tr>
+                        <td class="info-table-label"><strong>28 (F)</strong></td>
+                        <td class="info-value-good"><strong>20</strong></td>
+                        <td class="info-value-bad">21</td>
+                        <td class="info-value-bad">22</td>
+                        <td class="info-value-bad">23</td>
+                        <td class="info-value-bad">23</td>
+                        <td class="info-value-bad">24</td>
+                        <td class="info-value-bad">25</td>
+                        <td class="info-value-bad">26</td>
+                        <td class="info-value-bad">27</td>
+                        <td class="info-value-bad">28</td>
+                    </tr>
+                    <tr>
+                        <td class="info-table-label"><strong>30 (F)</strong></td>
+                        <td class="info-value-bad">21</td>
+                        <td class="info-value-bad">22</td>
+                        <td class="info-value-bad">23</td>
+                        <td class="info-value-bad">24</td>
+                        <td class="info-value-bad">25</td>
+                        <td class="info-value-bad">26</td>
+                        <td class="info-value-bad">27</td>
+                        <td class="info-value-bad">28</td>
+                        <td class="info-value-bad">29</td>
+                        <td class="info-value-bad">30</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
 </div>
 
-
-{% endblock %}
+    {% endblock %}

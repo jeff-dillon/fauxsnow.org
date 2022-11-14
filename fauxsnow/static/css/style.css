@@ -9,14 +9,6 @@ body {
                 "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
-ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0px;
-    padding: 0px;
-    gap: 16px;
-}
-
 a {
     text-decoration: none;
     color: currentColor;
@@ -70,6 +62,14 @@ p {
 .hdr-nav-link {
     color: #e5e7eb;
     font-size: large ;
+}
+
+.hdr-nav-list {
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
 }
 
 
@@ -141,7 +141,7 @@ p {
     font-size: medium;
 }
 
-.con-fltr.lgnd {
+.con-fltr-lgnd {
     list-style-type: none;
     display: flex;
     margin: 0px;
@@ -264,8 +264,8 @@ p {
 }
 
 .info-hdr {
-    display: flex;
-    justify-content: space-between;
+    font-size: x-large;
+
 }
 
 .info-body {
@@ -281,12 +281,41 @@ p {
     padding: 10px;
 }
 
-.info-img {
-    float: left;
-    padding: 0px 25px 0px 0px;
+.info-img-box {
+    float: right;
+    padding: 0px 0px 0px 25px;
     display: flex;
     flex-direction: column;
 }
+
+.info-resort-list {
+    display: flex;
+    width: 100%;
+}
+
+.info-resort-column {
+    flex: 1;
+}
+
+.info-table {
+    padding: 10px;
+}
+
+.info-value-good {
+    color: green;
+    text-align: center;
+}
+
+.info-value-bad {
+    color: red;
+    text-align: center;
+}
+
+.info-table-label {
+    text-align: right;
+}
+
+
 
 .alert {
     margin: 10px 5px 10px 5px;
@@ -371,10 +400,6 @@ p {
     color: #ef4224;
 }
 
-
-
-
-
 .day {
     text-align: center;
 }
@@ -403,6 +428,16 @@ p {
     .large-forecast {
         display: none;
     }
+    .info-img {
+        width: 200px;
+    }
+    .info-table td {
+        padding: 5px;
+        font-size: small;
+    }
+    .info-table th {
+        font-size: small;
+    }
 }
 
 @media screen and (min-width: 920px) {
@@ -411,5 +446,16 @@ p {
     }
     .small-forecast {
         display: none;
+    }
+
+    .info-img {
+        width: 300px;
+    }
+    .info-table td {
+        padding: 10px;
+        font-size: medium;
+    }
+    .info-table th {
+        font-size: medium;
     }
 }

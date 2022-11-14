@@ -1,6 +1,7 @@
 import os
-
+import asyncio
 from flask import Flask, render_template
+from . import weather
 
 
 def create_app(test_config=None):
@@ -49,5 +50,10 @@ def create_app(test_config=None):
     @app.route('/about')
     def about():
         return render_template('main/about.html')
+
+    @app.route('/refresh')
+    def refresh():
+        db.refresh_forecasts()
+        return render_template('main/refresh.html')
 
     return app

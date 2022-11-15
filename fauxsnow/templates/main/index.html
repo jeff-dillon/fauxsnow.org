@@ -35,14 +35,12 @@
     {% for resort in resorts %}
 <div class="fcst-sum" data-open="{{ resort['resort_open'] }}" data-resort="{{ resort['resort_id'] }}" data-favorite="0">
     <div class="fcst-sum-hdr">
-        <div class="box-header-left">
-            <div class="box-header-text">
-                <div class="box-title">
+            <div class="fcst-sum-hdr-text">
+                <div class="fcst-sum-hdr-title">
                     <a href="{{ url_for('detail', resort_id=resort.resort_id) }}">{{ resort['resort_name'] }}</a>
                 </div>
-                <div class="box-subtitle">{{ resort['state_full']}}</div>
+                <div class="fcst-sum-hdr-subtitle">{{ resort['state_full']}}</div>
             </div>
-        </div>
         <button data-resort="{{ resort['resort_id'] }}" class="fav-btn">
         <svg id="star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fav-btn-icon showing" fill="#e99003" viewBox="0 0 16 16">
             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
@@ -82,45 +80,31 @@
                 <div class="amount fcst-sum-next-span">{{ resort['sum_forecast_snow'] }}"</div>
             </div>
             <table class="fcst-sum-table">
+                
                 <tr class="large-forecast">
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp1_fs_conditions'], '30') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp2_fs_conditions'], '30') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp3_fs_conditions'], '30') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp4_fs_conditions'], '30') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp5_fs_conditions'], '30') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp6_fs_conditions'], '30') }}</td>
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '30') }}</td>
+                    {%  endfor %}
                 </tr>
                 <tr class="small-forecast">
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp1_fs_conditions'], '20') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp2_fs_conditions'], '20') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp3_fs_conditions'], '20') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp4_fs_conditions'], '20') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp5_fs_conditions'], '20') }}</td>
-                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp6_fs_conditions'], '20') }}</td>
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '20') }}</td>
+                    {%  endfor %}
                 </tr>
                 <tr class="large-forecast">
-                    <td class="fcst-sum-table-cell temp">{{ resort['fp1_max_temp'] }} / {{ resort['fp1_min_temp'] }}</td>
-                    <td class="fcst-sum-table-cell temp">{{ resort['fp2_max_temp'] }} / {{ resort['fp2_min_temp'] }}</td>
-                    <td class="fcst-sum-table-cell temp">{{ resort['fp3_max_temp'] }} / {{ resort['fp3_min_temp'] }}</td>
-                    <td class="fcst-sum-table-cell temp">{{ resort['fp4_max_temp'] }} / {{ resort['fp4_min_temp'] }}</td>
-                    <td class="fcst-sum-table-cell temp">{{ resort['fp5_max_temp'] }} / {{ resort['fp5_min_temp'] }}</td>
-                    <td class="fcst-sum-table-cell temp">{{ resort['fp6_max_temp'] }} / {{ resort['fp6_min_temp'] }}</td>
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell temp">{{ resort['fp' ~ i ~ '_max_temp'] }} / {{ resort['fp' ~ i ~ 'min_temp'] }}</td>
+                    {%  endfor %}
                 </tr>
                 <tr class="large-forecast">
-                    <td class="fcst-sum-table-cell day">{{ resort['fp1_day_long'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp2_day_long'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp3_day_long'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp4_day_long'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp5_day_long'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp6_day_long'] }}</td>
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell day">{{ resort['fp' ~ i ~ '_day_long'] }}</td>
+                    {%  endfor %}
                 </tr>
                 <tr class="small-forecast">
-                    <td class="fcst-sum-table-cell day">{{ resort['fp1_day_short'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp2_day_short'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp3_day_short'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp4_day_short'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp5_day_short'] }}</td>
-                    <td class="fcst-sum-table-cell day">{{ resort['fp6_day_short'] }}</td>
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell day">{{ resort['fp' ~ i ~ '_day_short'] }}</td>
+                    {%  endfor %}
                 </tr>
             </table>
 

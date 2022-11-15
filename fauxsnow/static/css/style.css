@@ -5,8 +5,7 @@ html, body, .viewport {
 }
 
 body {
-    font-family: "Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif,
-                "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: "Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
 a {
@@ -110,21 +109,26 @@ p {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    align-items: center;
 }
 
 .con-hdr-title {
-    flex: 1;
     font-size: x-large;
     font-weight: bold;
     padding: 20px;
     display: flex;
     align-items: flex-start;
     align-content: flex-start;
-    border-bottom: #999 1px solid;
+}
+
+.con-hdr-img {
+    vertical-align: middle;
+    height: 60px;
+    margin-right: 40px;
 }
 
 .con-fltr {
-    border: 0px;
+    border-top: lightgray 1px solid;
     padding: 5px 20px 5px 20px;
     margin: 5px;
     color: black;
@@ -172,6 +176,10 @@ p {
 }
 
 
+
+
+
+
 /* Forecast Summary */
 
 .fcst-sum {
@@ -184,6 +192,22 @@ p {
 .fcst-sum-hdr {
     display: flex;
     justify-content: space-between;
+}
+
+.fcst-sum-hdr-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.fcst-sum-hdr-title {
+    font-size: larger;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fcst-sum-hdr-subtitle {
+    font-size: smaller;
+    color: darkgray;
 }
 
 .fcst-sum-body {
@@ -243,18 +267,32 @@ p {
 }
 
 
+
+
+
 /* favorite button */
-/* make it so the pointer events pass through the svg to the button */
 
 .fav-btn {
     background-color: white;
     border: white 0px solid;
 }
+
+/* make it so the pointer events pass through the svg to the button */
 .fav-btn > svg {
     pointer-events: none;
 }
 
+.hidden {
+    display: none;
+}
 
+.showing {
+    display: block;
+}
+
+
+
+/* Info Boxes */
 
 .info {
     margin: 10px 5px 10px 5px;
@@ -290,6 +328,7 @@ p {
 
 .info-resort-list {
     display: flex;
+    justify-content: center;
     width: 100%;
 }
 
@@ -299,6 +338,7 @@ p {
 
 .info-table {
     padding: 10px;
+    width: 100%;
 }
 
 .info-value-good {
@@ -311,11 +351,23 @@ p {
     text-align: center;
 }
 
+.info-value {
+    text-align: center;
+}
+
 .info-table-label {
     text-align: right;
 }
 
 
+/* Detail Forecast */
+
+.detail-table {
+    padding: 10px;
+    width: 100%;
+}
+
+/* Alert Box */
 
 .alert {
     margin: 10px 5px 10px 5px;
@@ -335,43 +387,12 @@ p {
 
 
 
-.image-icon {
-    vertical-align: middle;
-}
-
-
-
-.box-header-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.box-header-logo {
-    width: 100px;
-    margin-right: 10px;
-}
-
-.box-header-left {
-    display: flex;
-}
-
-
-
-.box-title {
-    font-size: larger;
-    display: flex;
-    justify-content: space-between;
-}
-
-.box-subtitle {
-    font-size: smaller;
-    color: darkgray;
-}
-
-
 
 /* Typography */
 
+.image-icon {
+    vertical-align: middle;
+}
 
 .amount {
     font-size: xx-large;
@@ -411,15 +432,10 @@ p {
 
 
 
-.hidden {
-    display: none;
-}
-
-.showing {
-    display: block;
-}
 
 
+
+/* Media Queries */
 
 @media screen and (max-width: 920px) {
     .hdr-nav, .content-box, .con-hdr, .con-fltr, .fcst-sum, .info, .alert {
@@ -437,6 +453,12 @@ p {
     }
     .info-table th {
         font-size: small;
+    }
+    .con-hdr-img {
+        display: none;
+    }
+    .fcst-sum-table-cell {
+        padding: 2px 5px 2px 5px;
     }
 }
 
@@ -457,5 +479,11 @@ p {
     }
     .info-table th {
         font-size: medium;
+    }
+    .con-hdr-img {
+        display: block;
+    }
+    .fcst-sum-table-cell {
+        padding: 2px 15px 2px 15px;
     }
 }

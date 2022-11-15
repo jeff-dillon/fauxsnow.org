@@ -29,12 +29,12 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # a coming soon page
-    @app.route('/')
+    @app.route('/comingsoon/')
     def coming_soon():
         return render_template('coming_soon/index.html')
     
     # main page of the application
-    @app.route('/main')
+    @app.route('/')
     def main():
         resorts = db.get_resorts()
         return render_template('main/index.html', resorts=resorts)

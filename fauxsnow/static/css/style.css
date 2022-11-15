@@ -1,0 +1,489 @@
+html, body, .viewport {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Top Level Layout */
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* Header */
+
+.hdr {
+    display: flex;
+    background-color: #008cba;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hdr-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hdr-logo-link {
+    color: #f9faf8;
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.hdr-logo-img {
+    padding-right: 5px;
+}
+
+.hdr-nav-link {
+    color: #e5e7eb;
+    font-size: large ;
+}
+
+.hdr-nav-list {
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
+}
+
+
+
+
+/* Footer */
+
+.ftr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f2937;
+    padding: 20px;
+    margin-top: 40px;
+    color: #f9faf8;
+}
+
+.ftr-copy {
+    font-size: small;
+}
+
+
+
+
+/* Content */
+
+.con {
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.con-hdr {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.con-hdr-title {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.con-hdr-img {
+    vertical-align: middle;
+    height: 60px;
+    margin-right: 40px;
+}
+
+.con-fltr {
+    border-top: lightgray 1px solid;
+    padding: 5px 20px 5px 20px;
+    margin: 5px;
+    color: black;
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.con-fltr-btns {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+}
+
+.con-fltr-lgnd {
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
+}
+
+.con-fltr-btn-active {
+    background-color: #5ac1de;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+    height: fit-content;
+    border: lightgray 1px solid;
+    border-radius: 20px;
+
+}
+
+.con-fltr-btn-inactive {
+    background-color: #eeeeee;
+    color: #888;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+    height: fit-content;
+    border: lightgray 1px solid;
+    border-radius: 20px;
+
+}
+
+
+
+
+
+
+/* Forecast Summary */
+
+.fcst-sum {
+    margin: 10px 5px 10px 5px;
+    border: lightgray 1px solid;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.fcst-sum-hdr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fcst-sum-hdr-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.fcst-sum-hdr-title {
+    font-size: larger;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fcst-sum-hdr-subtitle {
+    font-size: smaller;
+    color: darkgray;
+}
+
+.fcst-sum-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fcst-sum-prev {
+    height: 125px;
+    width: 125px;
+    margin: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fcst-sum-next {
+    border-left: #999 1px dashed;
+    flex: 1;
+    margin: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.fcst-sum-title {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    padding: 4px;
+    align-items: space-between;
+    flex-direction: column;
+}
+
+.fcst-sum-table {
+    width: 100%;
+}
+
+.fcst-sum-table-cell {
+    padding: 2px 15px 2px 15px;
+    text-align: center;
+}
+
+
+.fcst-sum-next-span {
+    flex: 1;
+    border-top: #999 1px dashed;
+    border-left: #999 1px dashed;
+    border-right: #999 1px dashed;
+    margin: 10px;
+    padding: 4px;
+}
+
+
+
+
+
+/* favorite button */
+
+.fav-btn {
+    background-color: white;
+    border: white 0px solid;
+}
+
+/* make it so the pointer events pass through the svg to the button */
+.fav-btn > svg {
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
+
+
+
+/* Info Boxes */
+
+.info {
+    margin: 10px 5px 10px 5px;
+    border: lightgray 1px solid;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.info-hdr {
+    font-size: x-large;
+
+}
+
+.info-body {
+    padding: 10px;
+}
+
+.info-map {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text {
+    padding: 10px;
+}
+
+.info-img-box {
+    float: right;
+    padding: 0px 0px 0px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-resort-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.info-resort-column {
+    flex: 1;
+}
+
+.info-table {
+    padding: 10px;
+    width: 100%;
+}
+
+.info-value-good {
+    color: green;
+    text-align: center;
+}
+
+.info-value-bad {
+    color: red;
+    text-align: center;
+}
+
+.info-value {
+    text-align: center;
+}
+
+.info-table-label {
+    text-align: right;
+}
+
+
+/* Detail Forecast */
+
+.detail-table {
+    padding: 10px;
+    width: 100%;
+}
+
+/* Alert Box */
+
+.alert {
+    margin: 10px 5px 10px 5px;
+    border: lightgray 1px solid;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #5bc0de;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.alert-link {
+    text-decoration: underline;
+}
+
+
+
+
+/* Typography */
+
+.image-icon {
+    vertical-align: middle;
+}
+
+.amount {
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    color:#008cba;
+}
+
+.measure {
+    font-size: small;
+    text-align: center;
+    color:#008cba;
+}
+
+.footnote {
+    font-size: small;
+    text-align: center;
+    font-weight: bold;
+}
+
+.resort-open {
+    color: #44ac6a;
+}
+
+.resort-closed {
+    color: #ef4224;
+}
+
+.day {
+    text-align: center;
+}
+
+.temp {
+    text-align: center;
+    font-size: small;
+}
+
+
+
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 920px) {
+    .hdr-nav, .content-box, .con-hdr, .con-fltr, .fcst-sum, .info, .alert {
+        width: 90%;
+    }
+    .large-forecast {
+        display: none;
+    }
+    .info-img {
+        width: 200px;
+    }
+    .info-table td {
+        padding: 5px;
+        font-size: small;
+    }
+    .info-table th {
+        font-size: small;
+    }
+    .con-hdr-img {
+        display: none;
+    }
+    .fcst-sum-table-cell {
+        padding: 2px 5px 2px 5px;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    .hdr-nav, .content-box, .con-hdr, .con-fltr, .fcst-sum, .info, .alert {
+        width: 880px;
+    }
+    .small-forecast {
+        display: none;
+    }
+
+    .info-img {
+        width: 300px;
+    }
+    .info-table td {
+        padding: 10px;
+        font-size: medium;
+    }
+    .info-table th {
+        font-size: medium;
+    }
+    .con-hdr-img {
+        display: block;
+    }
+    .fcst-sum-table-cell {
+        padding: 2px 15px 2px 15px;
+    }
+}

@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block title %}FAUXSNOW.ORG{% endblock %}
+
+{% block content %}
+<div class="con">
+    <div class="con-hdr">
+        <div class="con-hdr-title">Ski Resorts</div>
+    </div>
+    <div class="con-fltr">
+        <div class="con-fltr-btns">
+            Filter:
+            <button id="all-fltr-btn" class="con-fltr-btn-active">All</button>
+            <button id="open-fltr-btn" class="con-fltr-btn-inactive">Open</button>
+            <button id="fav-fltr-btn" class="con-fltr-btn-inactive">Favorites</button>
+        </div>
+        <ul class="con-fltr-lgnd">
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="image-icon" viewBox="0 0 16 16">
+                <path d="M8 7.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1z"/>
+                <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.51l-2.053-1.232-1.348.778-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.883-.237a.5.5 0 1 1 .258-.966l1.85.495L5 9.155v-2.31l-1.4-.808-1.85.495a.5.5 0 1 1-.259-.966l.884-.237-1.12-.646a.5.5 0 0 1 .5-.866l1.12.646-.237-.883a.5.5 0 1 1 .966-.258l.495 1.849 1.348.778L7.5 4.717v-1.51L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.51l2.053 1.232 1.348-.778.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-1.4.808v2.31l1.4.808 1.849-.495a.5.5 0 1 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-1.348-.778L8.5 11.283v1.51l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5zm2-6.783V6.783l-2-1.2-2 1.2v2.434l2 1.2 2-1.2z"/>
+              </svg> snow</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="image-icon" viewBox="0 0 16 16">
+                <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585A1.5 1.5 0 0 1 5 12.5z" />
+                <path
+                  d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 0 1 .708.708L9 5.207v1.927l1.669-.963.495-1.85a.5.5 0 1 1 .966.26l-.237.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.884.237a.5.5 0 1 1-.26.966l-1.848-.495L9.5 8l1.669.963 1.849-.495a.5.5 0 1 1 .258.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.237.883a.5.5 0 1 1-.966.258L10.67 9.83 9 8.866v1.927l1.354 1.353a.5.5 0 0 1-.708.708L9 12.207V13.5a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5z" />
+              </svg> snowmaking</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="image-icon" viewBox="0 0 16 16">
+                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+              </svg> icy</li>
+        </ul>
+    </div>
+
+    {% for resort in resorts %}
+<div class="fcst-sum" data-open="{{ resort['resort_open'] }}" data-resort="{{ resort['resort_id'] }}" data-favorite="0">
+    <div class="fcst-sum-hdr">
+            <div class="fcst-sum-hdr-text">
+                <div class="fcst-sum-hdr-title">
+                    <a href="{{ url_for('detail', resort_id=resort.resort_id) }}">{{ resort['resort_name'] }}</a>
+                </div>
+                <div class="fcst-sum-hdr-subtitle">{{ resort['state_full']}}</div>
+            </div>
+        <button data-resort="{{ resort['resort_id'] }}" class="fav-btn">
+        <svg id="star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fav-btn-icon showing" fill="#e99003" viewBox="0 0 16 16">
+            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+        </svg>
+        <svg id="star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e99003" class="fav-btn-icon hidden" viewBox="0 0 16 16">
+            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+          </svg>
+        </button>
+    </div>
+    <div class="fcst-sum-body">
+        <div class="fcst-sum-prev">
+            <div class="fcst-sum-title"><strong>Last 3 Days</strong></div>
+            <table class="fcst-sum-table">
+                <tr>
+                    <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_snow'] }}"</td>
+                    <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_faux_days'] }}</td>
+                </tr>
+                <tr>
+                    <td class="fcst-sum-table-cell measure">inches <br/> snow</td>
+                    <td class="fcst-sum-table-cell measure">days of<br/> snowmaking</td>
+                </tr>
+                <tr>
+                    <td class="fcst-sum-table-cell footnote" colspan="2">
+                        <br/>
+                        {% if resort['resort_open'] == 0 %}
+                        <p class="resort-closed">Status: Closed</p>
+                        {% else %}
+                        <p class="resort-open">Status: Open</p>
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="fcst-sum-next">
+            <div class="fcst-sum-title">
+                <strong>Next 5 Days</strong>
+                <div class="amount fcst-sum-next-span">{{ resort['sum_forecast_snow'] }}"</div>
+            </div>
+            <table class="fcst-sum-table">
+                
+                <tr class="large-forecast">
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '30') }}</td>
+                    {%  endfor %}
+                </tr>
+                <tr class="small-forecast">
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell">{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '20') }}</td>
+                    {%  endfor %}
+                </tr>
+                <tr class="large-forecast">
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell temp">{{ resort['fp' ~ i ~ '_max_temp'] }} / {{ resort['fp' ~ i ~ 'min_temp'] }}</td>
+                    {%  endfor %}
+                </tr>
+                <tr class="large-forecast">
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell day">{{ resort['fp' ~ i ~ '_day_long'] }}</td>
+                    {%  endfor %}
+                </tr>
+                <tr class="small-forecast">
+                    {% for i in range(1,6) %}
+                    <td class="fcst-sum-table-cell day">{{ resort['fp' ~ i ~ '_day_short'] }}</td>
+                    {%  endfor %}
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% macro render_icon(forecast, size) -%}
+
+    {% if forecast == 'snow' %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{size}}" height="{{size}}" fill="currentColor" class="image-icon" viewBox="0 0 16 16">
+        <path d="M8 7.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1z"/>
+        <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.51l-2.053-1.232-1.348.778-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.883-.237a.5.5 0 1 1 .258-.966l1.85.495L5 9.155v-2.31l-1.4-.808-1.85.495a.5.5 0 1 1-.259-.966l.884-.237-1.12-.646a.5.5 0 0 1 .5-.866l1.12.646-.237-.883a.5.5 0 1 1 .966-.258l.495 1.849 1.348.778L7.5 4.717v-1.51L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.51l2.053 1.232 1.348-.778.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-1.4.808v2.31l1.4.808 1.849-.495a.5.5 0 1 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-1.348-.778L8.5 11.283v1.51l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5zm2-6.783V6.783l-2-1.2-2 1.2v2.434l2 1.2 2-1.2z"/>
+      </svg>
+    {% elif forecast == 'faux' %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{size}}" height="{{size}}" fill="currentColor" class="image-icon" viewBox="0 0 16 16">
+        <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585A1.5 1.5 0 0 1 5 12.5z" />
+        <path d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1.293l.646-.647a.5.5 0 0 1 .708.708L9 5.207v1.927l1.669-.963.495-1.85a.5.5 0 1 1 .966.26l-.237.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.884.237a.5.5 0 1 1-.26.966l-1.848-.495L9.5 8l1.669.963 1.849-.495a.5.5 0 1 1 .258.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.237.883a.5.5 0 1 1-.966.258L10.67 9.83 9 8.866v1.927l1.354 1.353a.5.5 0 0 1-.708.708L9 12.207V13.5a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5z" />
+    </svg>
+    {% elif forecast == 'icy' %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{size}}" height="{{size}}" fill="red" class="image-icon" viewBox="0 0 16 16">
+        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+        <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+      </svg>
+    {% else %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{size}}" height="{{size}}" fill="currentColor" class="image-icon" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+      </svg>
+    {% endif %}
+
+{%- endmacro %}

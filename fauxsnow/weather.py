@@ -44,8 +44,23 @@ async def get_weather() -> list:
 
 
 # TODO implement
-def get_historic():
-    return 3
+def get_historic(forecast):
+    resort_open = int(forecast['resort_open'])
+    if(not resort_open):
+        return 0
+    
+    fs = []
+    for i in range(0,3):
+        avg_dewpoint = get_avg_value_by_date(forecast['hourly']['time'], 
+                                                        forecast['hourly']['dewpoint_2m'], 
+                                                        forecast['daily']['time'][i])
+        fs.append(get_fs_conditions(float(avg_dewpoint), 
+                                    float(forecast['daily']['temperature_2m_max'][i]), 
+                                    float(forecast['daily']['temperature_2m_min'][i]), 
+                                    forecast['daily']['weathercode'][i], 
+                                    int(forecast['resort_open']), 
+                                    float(forecast['daily']['snowfall_sum'][i])))
+    return fs.count('faux')
 
 
 
@@ -104,6 +119,13 @@ def get_conditions(code: int) -> str:
 
 
 
+def cm_to_inch(value):
+    """
+    Returns a value given in centimeters converted to inches 
+    """
+    return value * 0.393701
+
+
 def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weathercode: str, resort_open: int, snowfall_sum: float) -> str:
     """
     calculates one of four possible conditions
@@ -139,22 +161,29 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
     rain_codes = [51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99]
 
     # calculate the wet bulb temperature based on the max temperature
-    max_dewpoint_depression = max_temp - dewpoint
-    max_delta = max_dewpoint_depression / 3
-    max_wbt = max_temp - max_delta
+    max_wbt = wet_bulb(max_temp, dewpoint)
 
     # calculate the wet bulb temperature based on the min temperature
-    min_dewpoint_depression = min_temp - dewpoint
-    min_delta = min_dewpoint_depression / 3
-    min_wbt = min_temp - min_delta
+    min_wbt = wet_bulb(min_temp, dewpoint)
 
-    if(min_wbt <= 20 or max_wbt <= 20 and resort_open):
+
+    if((min_wbt <= 20 or max_wbt <= 20) and resort_open):
         return FAUX
 
     if(weathercode in snow_codes or snowfall_sum >= 0.5):
         return SNOW
 
-    if((weathercode in icy_codes or weathercode in rain_codes) and resort_open):
+    if((weathercode in icy_codes or weathercode in rain_codes or max_temp > 32) and resort_open):
         return ICY
 
     return NOTHING
+
+
+def wet_bulb(temp, dewpoint):
+    """
+     calculate the wet bulb temperature based on the temperature and dewpoint
+    """
+    dewpoint_depression = temp - dewpoint
+    delta = dewpoint_depression / 3
+    wbt = temp - delta
+    return wbt

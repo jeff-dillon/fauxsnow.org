@@ -20,8 +20,8 @@ This repo contains the source code and documentation powering [fauxsnow.org](htt
 
 1. initialize the database: `flask --app fauxsnow init-db`
 1. run the unit tests `pytest`
-1. start the application server: `gunicorn -w 4 "faux-snow:create_app()"`
-1. open `http://127.0.0.1:8000/` to open the site in your browser
+1. start the application server: `flask --app fauxsnow --debug run"`
+1. open `http://127.0.0.1:5000/main` to open the site in your browser
 ## Contributing
 
 Contact the repo owner directly to ask about contributing to the project.

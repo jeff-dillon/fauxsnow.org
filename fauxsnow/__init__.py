@@ -29,7 +29,7 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # a coming soon page
-    @app.route('/comingsoon/')
+    @app.route('/comingsoon')
     def coming_soon():
         return render_template('coming_soon/index.html')
     
@@ -40,7 +40,7 @@ def create_app(test_config=None):
         return render_template('main/index.html', resorts=resorts)
 
 
-    @app.route('/<resort_id>/')
+    @app.route('/resort/<resort_id>/')
     def detail(resort_id):
         resort = db.get_resort_by_id(resort_id)
         return render_template('/main/detail.html', resort=resort)

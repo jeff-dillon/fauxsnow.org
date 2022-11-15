@@ -124,10 +124,20 @@ function favoriteClick(e) {
 
     // update the forecast summary div
     toggleForecastSummary(selected_resort);
-    
 
 };
 
+
+function menuClick(e) {
+    links = document.querySelector('.mobile-nav-list');
+    if(links.classList.contains('hidden')) {
+        links.classList.remove('hidden');
+        links.classList.add('showing');
+    } else {
+        links.classList.remove('showing');
+        links.classList.add('hidden');
+    }
+};
 
 /**
  * Update the favorite status of the Forecast Summary div.
@@ -214,31 +224,43 @@ function initFavorites() {
     }
 }
 
-/**
- * Register the filter button event listeners
- */
 
 allBtn = document.querySelector('#all-fltr-btn');
-allBtn.addEventListener('click', filterClick);
+if(allBtn) { // check if we are on the main page
 
-openBtn = document.querySelector('#open-fltr-btn');
-openBtn.addEventListener('click', filterClick);
+    /**
+     * Register the filter button event listeners
+     */
 
-favBtn = document.querySelector('#fav-fltr-btn');
-favBtn.addEventListener('click', filterClick);
+    allBtn.addEventListener('click', filterClick);
+
+    openBtn = document.querySelector('#open-fltr-btn');
+    openBtn.addEventListener('click', filterClick);
+
+    favBtn = document.querySelector('#fav-fltr-btn');
+    favBtn.addEventListener('click', filterClick);
+
+    /**
+     * register the favorite star event listeners
+     */
+
+    stars = Array.from(document.querySelectorAll('.fav-btn'));
+    stars.forEach(star => {
+        star.addEventListener('click', favoriteClick);
+    });
+
+    /**
+     * Initialize the favorites in the UI from the cookie.
+     */
+    initFavorites();
+ 
+}
 
 
-/**
- * register the favorite star event listeners
- */
 
-stars = Array.from(document.querySelectorAll('.fav-btn'));
-stars.forEach(star => {
-    star.addEventListener('click', favoriteClick);
-});
+menuBtn = document.querySelector('#mobile-menu');
+menuBtn.addEventListener('click', menuClick);
 
 
-/**
- * Initialize the favorites in the UI from the cookie.
- */
-initFavorites();
+
+

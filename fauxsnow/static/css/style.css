@@ -33,10 +33,11 @@ p {
 
 .hdr {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #008cba;
     padding: 8px;
     justify-content: center;
-    align-items: center;
     width: 100%;
 }
 
@@ -63,13 +64,7 @@ p {
     font-size: large ;
 }
 
-.hdr-nav-list {
-    list-style-type: none;
-    display: flex;
-    margin: 0px;
-    padding: 0px;
-    gap: 16px;
-}
+
 
 
 
@@ -127,17 +122,6 @@ p {
     margin-right: 40px;
 }
 
-.con-fltr {
-    border-top: lightgray 1px solid;
-    padding: 5px 20px 5px 20px;
-    margin: 5px;
-    color: black;
-    font-size: small;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 
 .con-fltr-btns {
     display: flex;
@@ -146,11 +130,11 @@ p {
 }
 
 .con-fltr-lgnd {
-    list-style-type: none;
     display: flex;
     margin: 0px;
     padding: 0px;
     gap: 16px;
+    font-size: medium;
 }
 
 .con-fltr-btn-active {
@@ -175,7 +159,24 @@ p {
 
 }
 
+/* make it so the pointer events pass through the svg to the button */
+.mobile-nav-btn > svg {
+    pointer-events: none;
+}
 
+.hdr-nav-list-mobile {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    gap: 16px;
+}
+
+.mobile-nav-list {
+    align-self: flex-end;
+    padding-right: 50px;
+}
 
 
 
@@ -183,7 +184,7 @@ p {
 /* Forecast Summary */
 
 .fcst-sum {
-    margin: 10px 5px 10px 5px;
+    margin: 10px 5px 5px 5px;
     border: lightgray 1px solid;
     border-radius: 8px;
     padding: 15px;
@@ -460,6 +461,28 @@ p {
     .fcst-sum-table-cell {
         padding: 2px 5px 2px 5px;
     }
+    .con-fltr {
+        border-top: lightgray 1px solid;
+        padding: 5px 20px 5px 20px;
+        margin: 5px;
+        color: black;
+        font-size: small;
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-nav-btn {
+        display: block;
+        background-color:#008cba ;
+        border: #008cba 0px solid;
+    }
+
+    .hdr-nav-list {
+        list-style-type: none;
+        display: none;
+        margin: 0px;
+        padding: 0px;
+        gap: 16px;
+    }
 }
 
 @media screen and (min-width: 920px) {
@@ -485,5 +508,26 @@ p {
     }
     .fcst-sum-table-cell {
         padding: 2px 15px 2px 15px;
+    }
+    .con-fltr {
+        border-top: lightgray 1px solid;
+        padding: 5px 20px 5px 20px;
+        margin: 5px;
+        color: black;
+        font-size: small;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mobile-nav-btn {
+        display: none;
+    }
+    .hdr-nav-list {
+        list-style-type: none;
+        display: flex;
+        justify-self: flex-end;
+        margin: 0px;
+        padding: 0px;
+        gap: 16px;
     }
 }

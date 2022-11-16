@@ -10,9 +10,9 @@
     <div class="con-fltr">
         <div class="con-fltr-btns">
             Filter:
-            <button id="all-fltr-btn" class="con-fltr-btn-active">All</button>
-            <button id="open-fltr-btn" class="con-fltr-btn-inactive">Open</button>
-            <button id="fav-fltr-btn" class="con-fltr-btn-inactive">Favorites</button>
+            <button id="all-fltr-btn" class="con-fltr-btn con-fltr-btn-active">All</button>
+            <button id="open-fltr-btn" class="con-fltr-btn con-fltr-btn-inactive">Open</button>
+            <button id="fav-fltr-btn" class="con-fltr-btn con-fltr-btn-inactive">Favorites</button>
         </div>
         <div class="con-fltr-lgnd">Legend:
             <div class="con-fltr-lgnd-item">
@@ -39,26 +39,33 @@
     </div>
 
     {% for resort in resorts %}
-<div class="fcst-sum" data-open="{{ resort['resort_open'] }}" data-resort="{{ resort['resort_id'] }}" data-favorite="0">
-    <div class="fcst-sum-hdr">
-            <div class="fcst-sum-hdr-text">
-                <div class="fcst-sum-hdr-title">
+<div class="con-box" data-open="{{ resort['resort_open'] }}" data-resort="{{ resort['resort_id'] }}" data-favorite="0">
+    <div class="con-box-hdr">
+            <div class="con-box-hdr-text">
+                <div class="con-box-hdr-title">
                     <a href="{{ url_for('detail', resort_id=resort.resort_id) }}">{{ resort['resort_name'] }}</a>
                 </div>
-                <div class="fcst-sum-hdr-subtitle">{{ resort['state_full']}}</div>
+                <div class="con-box-hdr-subtitle">{{ resort['state_full']}} | 
+                    {% if resort['resort_open'] == 0 %}
+                        <span class="resort-closed">Status: Closed</span>
+                        {% else %}
+                        <span class="resort-open">Status: Open</span>
+                        {% endif %}
+                </div>
             </div>
         <button data-resort="{{ resort['resort_id'] }}" class="fav-btn">
-        <svg id="star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fav-btn-icon showing" fill="#e99003" viewBox="0 0 16 16">
+        <svg id="star" xmlns="http://www.w3.org/2000/svg" class="fav-btn-icon showing" viewBox="0 0 16 16">
             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
         </svg>
-        <svg id="star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e99003" class="fav-btn-icon hidden" viewBox="0 0 16 16">
+        <svg id="star-fill" xmlns="http://www.w3.org/2000/svg" class="fav-btn-icon hidden" viewBox="0 0 16 16">
             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
           </svg>
         </button>
     </div>
-    <div class="fcst-sum-body">
+    <div class="con-box-body">
+        <div class="fcst-sum-prev-today">
         <div class="fcst-sum-prev">
-            <div class="fcst-sum-title"><strong>Last 3 Days</strong></div>
+            <div class="fcst-sum-title">Last 3 Days</div>
             <table class="fcst-sum-table">
                 <tr>
                     <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_snow'] }}"</td>
@@ -71,18 +78,36 @@
                 <tr>
                     <td class="fcst-sum-table-cell footnote" colspan="2">
                         <br/>
-                        {% if resort['resort_open'] == 0 %}
-                        <p class="resort-closed">Status: Closed</p>
-                        {% else %}
-                        <p class="resort-open">Status: Open</p>
-                        {% endif %}
+                        
                     </td>
                 </tr>
             </table>
         </div>
+        <div class="fcst-sum-today">
+            <div class="fcst-sum-title">
+                Today
+                <div class="amount fcst-sum-today-span">{{ resort['today_snow'] }}"</div>
+            </div>
+            <table class="fcst-sum-table">
+                
+                <tr class="large-forecast">
+                    <td class="fcst-sum-table-cell">{{ render_icon(resort['today_fs_conditions'], '30') }}</td>
+                </tr>
+                <tr class="small-forecast">
+                    <td class="fcst-sum-table-cell">{{ render_icon(resort['today_fs_conditions'], '20') }}</td>
+                </tr>
+                <tr class="large-forecast">
+                    <td class="fcst-sum-table-cell temp">{{ resort['today_max_temp'] }} / {{ resort['today_min_temp'] }}</td>
+                </tr>
+                <tr class="small-forecast">
+                    <td class="fcst-sum-table-cell temp">{{ resort['today_max_temp'] }} / {{ resort['today_min_temp'] }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
         <div class="fcst-sum-next">
             <div class="fcst-sum-title">
-                <strong>Next 5 Days</strong>
+                Next 5 Days
                 <div class="amount fcst-sum-next-span">{{ resort['sum_forecast_snow'] }}"</div>
             </div>
             <table class="fcst-sum-table">
@@ -97,19 +122,14 @@
                     <td class="fcst-sum-table-cell">{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '20') }}</td>
                     {%  endfor %}
                 </tr>
-                <tr class="large-forecast">
+                <tr>
                     {% for i in range(1,6) %}
                     <td class="fcst-sum-table-cell temp">{{ resort['fp' ~ i ~ '_max_temp'] }} / {{ resort['fp' ~ i ~ '_min_temp'] }}</td>
                     {%  endfor %}
                 </tr>
-                <tr class="large-forecast">
+                <tr>
                     {% for i in range(1,6) %}
                     <td class="fcst-sum-table-cell day">{{ resort['fp' ~ i ~ '_day_long'] }}</td>
-                    {%  endfor %}
-                </tr>
-                <tr class="small-forecast">
-                    {% for i in range(1,6) %}
-                    <td class="fcst-sum-table-cell day">{{ resort['fp' ~ i ~ '_day_short'] }}</td>
                     {%  endfor %}
                 </tr>
             </table>

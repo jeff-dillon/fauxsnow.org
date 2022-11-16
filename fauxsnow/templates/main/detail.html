@@ -5,42 +5,69 @@
 {% block content %}
 <div class="con">
     <div class="con-hdr">
-        <div class="con-hdr-title">{{ resort['resort_name']}}</div>
+        <div><div class="con-hdr-title">{{ resort['resort_name']}}</div>
+        <div class="fcst-sum-hdr-subtitle">{{ resort['state_full']}} | 
+            {% if resort['resort_open'] == 0 %}
+                <span class="resort-closed">Status: Closed</span>
+                {% else %}
+                <span class="resort-open">Status: Open</span>
+                {% endif %}
+        </div>
+    </div>
         <img class="con-hdr-img" src="{{ url_for('static', filename='images/'+resort['logo_file_name']) }}"/>
     </div>
     <div class="con-body">
-        <div class="info">
-            <div class="info-hdr">Recent Conditions</div>
-            <div class="info-body">
-                <div class="info-resort-list">
-                <div class="fcst-sum-prev">
-                    <div class="fcst-sum-title"><strong>Last 3 Days</strong></div>
-                    <table class="fcst-sum-table">
-                        <tr>
-                            <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_snow'] }}"</td>
-                            <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_faux_days'] }}</td>
-                        </tr>
-                        <tr>
-                            <td class="fcst-sum-table-cell measure">inches <br/> snow</td>
-                            <td class="fcst-sum-table-cell measure">days of<br/> snowmaking</td>
-                        </tr>
-                        <tr>
-                            <td class="fcst-sum-table-cell footnote" colspan="2">
-                                <br/>
-                                {% if resort['resort_open'] == 0 %}
-                                <p class="resort-closed">Status: Closed</p>
-                                {% else %}
-                                <p class="resort-open">Status: Open</p>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    </table>
-                </div></div>
+        <div class="con-box">
+            <div class="con-box-hdr">
+                <div class="con-box-hdr-title">Recent Conditions</div></div>
+            <div class="con-box-body">
+                <div class="fcst-sum-prev-today">
+                    <div class="fcst-sum-prev">
+                        <div class="fcst-sum-title">Last 3 Days</div>
+                        <table class="fcst-sum-table">
+                            <tr>
+                                <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_snow'] }}"</td>
+                                <td class="fcst-sum-table-cell amount">{{ resort['sum_historic_faux_days'] }}</td>
+                            </tr>
+                            <tr>
+                                <td class="fcst-sum-table-cell measure">inches <br/> snow</td>
+                                <td class="fcst-sum-table-cell measure">days of<br/> snowmaking</td>
+                            </tr>
+                            <tr>
+                                <td class="fcst-sum-table-cell footnote" colspan="2">
+                                    <br/>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="fcst-sum-today">
+                        <div class="fcst-sum-title">
+                            Today
+                            <div class="amount fcst-sum-today-span">{{ resort['today_snow'] }}"</div>
+                        </div>
+                        <table class="fcst-sum-table">
+                            
+                            <tr class="large-forecast">
+                                <td class="fcst-sum-table-cell">{{ render_icon(resort['today_fs_conditions'], '30') }}</td>
+                            </tr>
+                            <tr class="small-forecast">
+                                <td class="fcst-sum-table-cell">{{ render_icon(resort['today_fs_conditions'], '20') }}</td>
+                            </tr>
+                            <tr class="large-forecast">
+                                <td class="fcst-sum-table-cell temp">{{ resort['today_max_temp'] }} / {{ resort['today_min_temp'] }}</td>
+                            </tr>
+                            <tr class="small-forecast">
+                                <td class="fcst-sum-table-cell temp">{{ resort['today_max_temp'] }} / {{ resort['today_min_temp'] }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div><div class="info">
-            <div class="info-hdr">Detailed Forecast</div>
-            <div class="info-body">
-                <table class="detail-table">
+        </div><div class="con-box">
+            <div class="con-box-hdr"><div class="con-box-hdr-title">Detailed Forecast</div></div>
+            <div class="con-box-body">
+                <table class="info-table">
                     <tr class="large-forecast">
                         <td> </td>
                         <td><strong>Day</strong></td>
@@ -51,7 +78,7 @@
                     </tr>
                     <tr class="small-forecast">
                         <td> </td>
-                        <td><strong>Day</strong></td>
+                        <td><strong> </strong></td>
                         <td><strong>H</strong></td>
                         <td><strong>L</strong></td>
                         <td><strong>Snow</strong></td>
@@ -67,8 +94,8 @@
                         <td>{{ resort['fp' ~ i ~ '_conditions'] }}</td>
                     </tr>
                     <tr class="small-forecast">
-                        <td>{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '20') }}</td>
                         <td>{{ resort['fp' ~ i ~ '_day_short'] }}</td>
+                        <td>{{ render_icon(resort['fp' ~ i ~ '_fs_conditions'], '20') }}</td>
                         <td>{{ resort['fp' ~ i ~ '_max_temp'] }}</td>
                         <td>{{ resort['fp' ~ i ~ '_min_temp'] }}</td>
                         <td>{{ resort['fp' ~ i ~ '_snow'] }}</td>
@@ -78,9 +105,9 @@
                 </table>
             </div>
         </div>
-        <div class="info">
-            <div class="info-hdr">Resort Info</div>
-            <div class="info-body">
+        <div class="con-box">
+            <div class="con-box-hdr"><div class="con-box-hdr-title">Resort Info</div></div>
+            <div class="con-box-body">
                 <table class="info-table">
                     <tr>
                         <th>Skiable Terrain (acres)</th>

@@ -9,12 +9,12 @@
     </div>
 
 
-    <div class="alert">Take Action! <a class="alert-link" href="https://protectourwinters.org/">Protect Our Winters</a>
+    <div class="alert"><strong>Take Action!</strong> <a class="alert-link" href="https://protectourwinters.org/">Protect Our Winters</a>
     </div>
 
-    <div class="info">
-        <div class="info-hdr">How to read the forecasts</div>
-        <div class="info-body">
+    <div class="con-box">
+        <div class="con-box-hdr"><div class="con-box-hdr-title">How to read the forecasts</div></div>
+        <div class="con-box-body">
             <p class="info-text"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                     class="image-icon" viewBox="0 0 16 16">
                     <path d="M8 7.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1z" />
@@ -38,25 +38,26 @@
         </div>
     </div>
 
-    <div class="info">
-        <div class="info-hdr">Why was this built?</div>
-        <div class="info-body">
+    <div class="con-box">
+        <div class="con-box-hdr"><div class="con-box-hdr-title">Why was this built?</div></div>
+        <div class="con-box-body">
+            <div class="info-resort-list">
             <div class="info-img-box">
                 <img class="info-img" src="{{ url_for('static', filename='images/us-average-annual-snowfall.jpg') }}">
                 <img class="info-img" src="{{ url_for('static', filename='images/average-snowfall-map-key.png') }}">
-            </div>
+            </div><div>
             <p class="info-text">Ski resorts in the US Southeast and Midwest get a modest amount of snowfall, even
                 in good years. Climate change could have an outsized impact on these resorts and make natural snow
                 days even more infrequent.</p>
             <p class="info-text">These resorts rely mainly on artificial snow, but most weather forecasts don't
                 predict artificial snowmaking conditions, only natural snowfall. <strong>fauxsnow.org</strong>
                 combines both natural and artificial snow forecasts to help you find the best conditions.</p>
-        </div>
+        </div></div></div>
     </div>
 
-    <div class="info">
-        <div class="info-hdr">Resorts</div>
-        <div class="info-body">
+    <div class="con-box">
+        <div class="con-box-hdr"><div class="con-box-hdr-title">Resorts</div></div>
+        <div class="con-box-body">
             <div class="info-resort-list">
                 <div class="info-resort-column">
                     <p><strong>Indiana</strong>
@@ -127,18 +128,20 @@
         </div>
     </div>
 
-    <div class="info">
-        <div class="info-hdr">What makes good snowmaking conditions?</div>
-        <div class="info-body">
+    <div class="con-box">
+        <div class="con-box-hdr"><div class="con-box-hdr-title">What makes good snowmaking conditions?</div></div>
+        <div class="conbox-body">
             <p class="info-text">Good snow-making conditions require wet-bulb temperatures of
-                20(F) or below. Wet-bulb temperature is a function of Temperature and Relative Humidity as shown
-                in the table below.</p>
+                20(F) or below. Wet-bulb temperature is a function of Temperature and Relative Humidity.</p>
 
-                <p><strong>Wet Bulb Temperature Chart</strong></p>
-            <table class="info-table">
+                
+            <table class="detail-table">
                 <thead>
                     <tr>
-                        <th colspan="12" style="text-align: center;">Relative Humidity</th>
+                        <th colspan="11">Wet Bulb Temperature Chart</th>
+                    </tr>
+                    <tr>
+                        <th colspan="11" style="text-align: center;">Relative Humidity</th>
                     </tr>
                     <tr>
                         <th></th>

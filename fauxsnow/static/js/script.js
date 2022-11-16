@@ -99,7 +99,7 @@ function filterClick(e) {
  * @returns nothing
  */
 function inactivateButtons() {
-    buttons = Array.from(document.querySelectorAll('button'));
+    buttons = Array.from(document.querySelectorAll('.con-fltr-btn'));
     buttons.forEach(button => {
         button.classList.remove('con-fltr-btn-active');
         button.classList.add('con-fltr-btn-inactive');

@@ -70,7 +70,7 @@ function filterClick(e) {
         });
     } else if(e.target.textContent == 'All') {
         // show all resorts
-        allResorts = document.querySelectorAll('.fcst-sum');
+        allResorts = document.querySelectorAll('.con-box');
         allResorts.forEach(resort => {
             resort.classList.add('showing');
             resort.classList.remove('hidden');

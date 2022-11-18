@@ -24,7 +24,7 @@
     --fs-body-font-weight:300;
     --fs-body-line-height:1.5;
     --fs-body-color:var(--fs-dark);
-    --fs-body-bg: var(--fs-white);
+    --fs-body-bg: var(--fs-light);
 
     --fs-hdr-font-size:2rem;
     --fs-hdr-font-weight:300;
@@ -197,8 +197,19 @@ a.hdr-nav-link:hover {
 
 .ftr-copy {
     color: var(--fs-ftr-color);
-    font-size: var(--fs-ftr-font-size);
+    font-size: var(--fs-font-size-normal);
     font-weight: var(--fs-ftr-font-weight);
+}
+
+.ftr-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.git-img {
+    fill: var(--fs-white);
+    width: 2rem;
+    height: 2rem;
 }
 
 
@@ -648,7 +659,7 @@ a.hdr-nav-link:hover {
     html {
         font-size:95%;
     }
-    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert {
+    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert, .ftr-box {
         width: 90%;
     }
     .large-forecast, .con-hdr-img, .hdr-nav-list, .detail-table {
@@ -678,7 +689,7 @@ a.hdr-nav-link:hover {
 
 /* Large Screens */
 @media screen and (min-width: 920px) {
-    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert {
+    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert, .ftr-box {
         width: 880px;
     }
     .small-forecast, .hdr-mobile-nav-btn {

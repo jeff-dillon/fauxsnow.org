@@ -83,8 +83,10 @@ MIT license found in the `LICENSE` file.
 
 Contributions are welcome. 
 
-1. Fork it
-1. Create your feature branch (git checkout -b feature/fooBar)
+1. Choose an open issue
+1. Ask questions in the issue if needed
+1. Fork the repo
+1. Create your branch (git checkout -b feature/fooBar)
 1. Commit your changes (git commit -am 'Add some fooBar')
 1. Push to the branch (git push origin feature/fooBar)
-1. Create a new Pull Request
+1. Create a new Pull Request linked to the issue

@@ -87,6 +87,6 @@ Contributions are welcome.
 1. Ask questions in the issue if needed
 1. Fork the repo
 1. Create your branch (git checkout -b feature/fooBar)
-1. Commit your changes (git commit -am 'Add some fooBar')
+1. Commit your changes (git commit -m 'Add some fooBar')
 1. Push to the branch (git push origin feature/fooBar)
 1. Create a new Pull Request linked to the issue

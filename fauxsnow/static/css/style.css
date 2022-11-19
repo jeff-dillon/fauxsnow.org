@@ -211,6 +211,10 @@ a.hdr-nav-link:hover {
     width: 2rem;
     height: 2rem;
 }
+.center-bulb{
+    margin-left: 13rem;
+    margin-right: 13rem;
+}
 
 
 
@@ -684,7 +688,7 @@ a.hdr-nav-link:hover {
     .info-img {
         width: 18rem;
     }
-
+  
 }
 
 /* Large Screens */
@@ -708,5 +712,6 @@ a.hdr-nav-link:hover {
     .info-img {
         width: 18rem;
     }
+   
 
 }

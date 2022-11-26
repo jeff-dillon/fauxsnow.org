@@ -60,7 +60,26 @@ def refresh_forecasts():
     """
     Refresh the forecast data in the db from the api
     """
-    init_db()
+    
+    # get the weather forecasts
+    forecasts = asyncio.run(weather.get_weather())
+    print(f'API returned {len(forecasts)} forecasts.')
+
+    if(len(forecasts) == 25):
+        print('deleting forecasts')
+        delete_forecasts()
+        print('saving forecasts')
+        save_foreacsts(forecasts)
+
+
+
+
+def delete_forecasts():
+    """
+    Delete the forecasts from the db.
+    """
+    db = get_db()
+    db.execute('DELETE FROM forecasts;')
 
 
 

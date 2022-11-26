@@ -397,10 +397,7 @@ a.hdr-nav-link:hover {
 
 .fcst-sum-body {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex: 1;
 }
 
 .fcst-sum-prev {

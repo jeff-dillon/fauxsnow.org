@@ -29,6 +29,7 @@ async def get_weather() -> list:
     async with aiohttp.ClientSession() as session:
         tasks = get_tasks(session, resorts)
         responses = await asyncio.gather(*tasks)
+        print(responses)
         for response in responses:
             forecast = await response.json()
 

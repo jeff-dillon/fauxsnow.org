@@ -19,6 +19,7 @@
     --fs-font-size-normal: 1rem;
     --fs-font-size-large: 1.5rem;
     --fs-font-size-x-large: 2rem;
+    --fs-font-size-hero: 5rem;
 
     --fs-body-font-family:var(--fs-font-sans-serif);
     --fs-body-font-weight:300;
@@ -63,6 +64,7 @@
 html, body, .viewport {
     width: 100%;
     height: 100%;
+    margin: 0px;
 }
 
 html {
@@ -522,6 +524,7 @@ a.hdr-nav-link:hover {
 
 .info-text {
     padding: .75rem;
+    font-size: var(--fs-font-size-large);
 }
 
 .info-img-box {
@@ -567,6 +570,48 @@ a.hdr-nav-link:hover {
 }
 
 
+
+
+
+
+/*  About Page */
+
+.hero-pane {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px 100px 0px;
+    background-color: var(--fs-primary);
+    background-image: url("/static/images/aaron-doucett-wcnLUi-s-eQ-unsplash.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-box {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: .75rem;
+}
+
+.hero-main-title {
+    font-size: var(--fs-font-size-hero);
+    font-weight: var(--fs-font-weight-bold);
+    color: var(--fs-secondary);
+    opacity: 1;
+}
+
+.hero-subtext {
+    font-size: var(--fs-font-size-x-large);
+    color: #e5e7eb;
+}
+
 /* Alert Box */
 
 .alert {
@@ -594,7 +639,81 @@ a.hdr-nav-link:hover {
     text-decoration: underline;
 }
 
+.alert-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fs-info);
+    width: 100%;
+    padding: 2rem 0 2rem 0;
+}
 
+.action-button {
+    padding: 8px 20px;
+    border: var(--fs-border-color) var(--fs-border-width) var(--fs-border-style);
+    border-radius: .5rem;
+    background-color: var(--fs-light);
+    color: var(--fs-dark);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.about-pane {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-box {
+    margin: .5rem .5rem;
+    padding: 3rem;
+}
+
+.aboutbox-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resorts-pane {
+    display: flex;
+    justify-content: center;
+    background-color: var(--fs-primary);
+    width: 100%;
+    padding: 2rem 0 2rem 0;
+}
+
+.resorts-box {
+    margin: .5rem .5rem;
+    padding: .75rem;
+    color: var(--fs-light);
+    font-size: var(--fs-font-size-large);
+}
+
+.resorts-title {
+    width: 100%;
+    text-align: center;
+    font-size: var(--fs-font-size-x-large);
+    font-weight: var(--fs-font-weight-bold);
+    padding: 1rem;
+}
+
+.credits-title {
+    font-size: var(--fs-font-size-x-large);
+    
+}
+
+.credits-table {
+    width: 100%;
+    font-size: var(--fs-font-size-normal);
+}
+
+.credits-table-hdr {
+    font-weight: var(--fs-font-weight-bold);
+}
 
 
 /* Typography */
@@ -656,10 +775,10 @@ a.hdr-nav-link:hover {
     html {
         font-size:95%;
     }
-    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert, .ftr-box {
+    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert, .ftr-box, .hero-box, .about-box, .resorts-box {
         width: 90%;
     }
-    .large-forecast, .con-hdr-img, .hdr-nav-list, .detail-table {
+    .large-forecast, .con-hdr-img, .hdr-nav-list {
         display: none;
     }
     
@@ -679,14 +798,14 @@ a.hdr-nav-link:hover {
     }
 
     .info-img {
-        width: 18rem;
+        width: 100%;
     }
 
 }
 
 /* Large Screens */
 @media screen and (min-width: 920px) {
-    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert, .ftr-box {
+    .hdr-nav, .con-box, .con-hdr, .con-fltr, .alert, .ftr-box, .hero-box, .about-box, .resorts-box {
         width: 880px;
     }
     .small-forecast, .hdr-mobile-nav-btn {
@@ -703,7 +822,7 @@ a.hdr-nav-link:hover {
     }
 
     .info-img {
-        width: 18rem;
+        width: 100%;
     }
 
 }

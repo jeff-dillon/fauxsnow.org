@@ -29,7 +29,6 @@ async def get_weather() -> list:
     async with aiohttp.ClientSession() as session:
         tasks = get_tasks(session, resorts)
         responses = await asyncio.gather(*tasks)
-        print(responses)
         for response in responses:
             forecast = await response.json()
 
@@ -173,8 +172,6 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
     # if it is sleeting or raining or the temp is >= 40: ICY
     if((is_sleeting or is_raining or is_warm) and resort_open):
         return_value = ICY
-
-    print(f'resort_open: {resort_open}; weathercode: {weathercode}; min_temp: {min_temp}; max_temp: {max_temp}; min_wbt: {min_wbt}; max_wbt: {max_wbt}; snowfall_sum: {snowfall_sum}; return_value: {return_value} ')
 
     return return_value
 

@@ -131,9 +131,57 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
     """
     calculates one of four possible conditions
     1. nothing (-) : default - conditions don't match the other three options
-    2. snow : weathercode in [71, 73, 75, 77, 85, 86] or snowfall sum < .05 inches
-    3. faux : wet bulb temperature 20F or below and resort is open
-    4. icy : weathercode in [56, 57, 66, 67] or temperature above 32F resort is open
+    2. snow : if the forecast is snow or the accumulation is more than .25: SNOW
+    3. faux : if the wet bulb temp is 20 or below and the resort is open
+    4. icy : if it is sleeting or raining or the temp is >= 40 and the resort is open
+    """
+
+    # return values
+    FAUX = 'faux'
+    ICY = 'icy'
+    SNOW = 'snow'
+    NOTHING = '-'
+    return_value = NOTHING
+
+    if(not resort_open):
+        return return_value
+
+    # weather codes
+    snow_codes = [71, 73, 75, 77, 85, 86]
+    icy_codes = [56, 57, 66, 67]
+    rain_codes = [51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99]
+
+    is_snowing = weathercode in snow_codes
+    is_raining = weathercode in rain_codes
+    is_sleeting = weathercode in icy_codes
+    is_warm = max_temp >= 40
+
+    # calculate the wet bulb temperature based on the max temperature
+    max_wbt = wet_bulb(max_temp, dewpoint)
+
+    # calculate the wet bulb temperature based on the min temperature
+    min_wbt = wet_bulb(min_temp, dewpoint)
+
+    # if the wet bulb temp is 20 or below and the resort is open: FAUX
+    if((min_wbt <= 20 or max_wbt <= 20) and resort_open):
+        return_value = FAUX
+
+    # if the forecast is snow or the accumulation is more than .25: SNOW
+    if(is_snowing or snowfall_sum >= 0.25):
+        return_value = SNOW
+
+    # if it is sleeting or raining or the temp is >= 40: ICY
+    if((is_sleeting or is_raining or is_warm) and resort_open):
+        return_value = ICY
+
+    print(f'resort_open: {resort_open}; weathercode: {weathercode}; min_temp: {min_temp}; max_temp: {max_temp}; min_wbt: {min_wbt}; max_wbt: {max_wbt}; snowfall_sum: {snowfall_sum}; return_value: {return_value} ')
+
+    return return_value
+
+
+def wet_bulb(temp, dewpoint):
+    """
+     calculate the wet bulb temperature based on the temperature and dewpoint
     """
 
     # snowmaking conditions require a wet bulb temperature of 20F or below
@@ -150,40 +198,6 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
     # delta = dewpoint_depression / 3
     # wet_bulb = temperature - delta
 
-    # return values
-    FAUX = 'faux'
-    ICY = 'icy'
-    SNOW = 'snow'
-    NOTHING = '-'
-
-    # weather codes
-    snow_codes = [71, 73, 75, 77, 85, 86]
-    icy_codes = [56, 57, 66, 67]
-    rain_codes = [51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99]
-
-    # calculate the wet bulb temperature based on the max temperature
-    max_wbt = wet_bulb(max_temp, dewpoint)
-
-    # calculate the wet bulb temperature based on the min temperature
-    min_wbt = wet_bulb(min_temp, dewpoint)
-
-
-    if((min_wbt <= 20 or max_wbt <= 20) and resort_open):
-        return FAUX
-
-    if(weathercode in snow_codes or snowfall_sum >= 0.5):
-        return SNOW
-
-    if((weathercode in icy_codes or weathercode in rain_codes or max_temp > 32) and resort_open):
-        return ICY
-
-    return NOTHING
-
-
-def wet_bulb(temp, dewpoint):
-    """
-     calculate the wet bulb temperature based on the temperature and dewpoint
-    """
     dewpoint_depression = temp - dewpoint
     delta = dewpoint_depression / 3
     wbt = temp - delta

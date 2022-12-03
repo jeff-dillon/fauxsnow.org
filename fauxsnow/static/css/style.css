@@ -585,7 +585,7 @@ a.hdr-nav-link:hover {
     align-items: center;
     padding: 100px 0px 100px 0px;
     background-color: var(--fs-primary);
-    background-image: url("/static/images/aaron-doucett-wcnLUi-s-eQ-unsplash.jpg");
+    background: url("/static/images/aaron-doucett-wcnLUi-s-eQ-unsplash.jpg") 50% 50%  no-repeat;
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
@@ -720,6 +720,7 @@ a.hdr-nav-link:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
+    justify-content: center;
 }
 
 .resource-box {
@@ -849,6 +850,10 @@ a.hdr-nav-link:hover {
 
     .detail-table {
         font-size: 80%;
+    }
+
+    .hero-pane {
+        background-attachment: scroll;
     }
 
 }

@@ -12,7 +12,7 @@ def test_coming_soon(client):
 
 def test_about(client):
     response = client.get('/about')
-    assert b'About' in response.data
+    assert b'Southeast' in response.data
 
 def test_main(client):
     response = client.get('/')

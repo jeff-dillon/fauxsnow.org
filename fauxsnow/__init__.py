@@ -55,5 +55,13 @@ def create_app(test_config=None):
     def refresh():
         db.refresh_forecasts()
         return render_template('main/refresh.html')
+    
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template('main/error.html', title = 'Well that did\'nt work...'), 404
+
+    @app.errorhandler(500)
+    def page_not_found(error):
+        return render_template('main/error.html', title = 'Well that did\'nt work...'), 500
 
     return app

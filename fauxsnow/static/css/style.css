@@ -19,6 +19,7 @@
     --fs-font-size-normal: 1rem;
     --fs-font-size-large: 1.5rem;
     --fs-font-size-x-large: 2rem;
+    --fs-font-size-xx-large: 3rem;
     --fs-font-size-hero: 5rem;
 
     --fs-body-font-family:var(--fs-font-sans-serif);
@@ -529,7 +530,7 @@ a.hdr-nav-link:hover {
 
 .info-img-box {
     float: right;
-    padding: 0px 0px 0px 1.5rem;
+    padding: 0px 0px 0px 0px;
     display: flex;
     flex-direction: column;
 }
@@ -668,7 +669,7 @@ a.hdr-nav-link:hover {
 
 .about-box {
     margin: .5rem .5rem;
-    padding: 3rem;
+    padding: 1rem;
 }
 
 .aboutbox-body {
@@ -713,6 +714,47 @@ a.hdr-nav-link:hover {
 
 .credits-table-hdr {
     font-weight: var(--fs-font-weight-bold);
+}
+
+.resource-pane {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.resource-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 13rem;
+}
+
+.resource-img {
+    border-radius: .5rem;
+    width: 10rem;
+}
+
+.resource-text {
+    font-size: var(--fs-font-size-normal);
+}
+
+.resource-text a {
+    text-decoration: underline;
+    color: var(--fs-primary);
+}
+
+.resource-meteo {
+    background: url('/static/images/open-meteo.jpeg') 50% 50% no-repeat; /* 50% 50% centers image in div */
+    width: 13rem;
+    height: 13rem;
+    border-radius: 1rem;
+}
+
+.resource-photo {
+    background: url('/static/images/aaron-doucett-wcnLUi-s-eQ-unsplash.jpg') 50% 50% no-repeat; /* 50% 50% centers image in div */
+    width: 13rem;
+    height: 13rem;
+    border-radius: 1rem;
 }
 
 
@@ -799,6 +841,14 @@ a.hdr-nav-link:hover {
 
     .info-img {
         width: 100%;
+    }
+
+    .hero-main-title {
+        font-size: var(--fs-font-size-xx-large);
+    }
+
+    .detail-table {
+        font-size: 80%;
     }
 
 }

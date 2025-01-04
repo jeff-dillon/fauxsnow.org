@@ -45,12 +45,7 @@
                 <div class="con-box-hdr-title">
                     <a href="{{ url_for('detail', resort_id=resort.resort_id) }}">{{ resort['resort_name'] }}</a>
                 </div>
-                <div class="con-box-hdr-subtitle">{{ resort['state_full']}} | 
-                    {% if resort['resort_open'] == 0 %}
-                        <span class="resort-closed">Status: Closed</span>
-                        {% else %}
-                        <span class="resort-open">Status: Open</span>
-                        {% endif %}
+                <div class="con-box-hdr-subtitle">{{ resort['state_full']}} 
                 </div>
             </div>
         <button data-resort="{{ resort['resort_id'] }}" class="fav-btn">

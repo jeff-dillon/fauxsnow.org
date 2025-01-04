@@ -234,8 +234,8 @@ if(allBtn) { // check if we are on the main page
 
     allBtn.addEventListener('click', filterClick);
 
-    openBtn = document.querySelector('#open-fltr-btn');
-    openBtn.addEventListener('click', filterClick);
+    // openBtn = document.querySelector('#open-fltr-btn');
+    // openBtn.addEventListener('click', filterClick);
 
     favBtn = document.querySelector('#fav-fltr-btn');
     favBtn.addEventListener('click', filterClick);

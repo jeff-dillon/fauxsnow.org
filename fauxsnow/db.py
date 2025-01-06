@@ -126,7 +126,7 @@ def save_foreacsts(forecasts):
                                                                         float(forecast['daily']['temperature_2m_min'][3]), 
                                                                         forecast['daily']['weathercode'][3], 
                                                                         int(forecast['resort_open']), 
-                                                                        float(forecast['daily']['snowfall_sum'][3]))
+                                                                        weather.cm_to_inch(float(forecast['daily']['snowfall_sum'][3])))
 
         # add the forecast periods
         for i in range(4,10):
@@ -148,7 +148,7 @@ def save_foreacsts(forecasts):
                                                                             float(forecast['daily']['temperature_2m_min'][i]), 
                                                                             forecast['daily']['weathercode'][i], 
                                                                             int(forecast['resort_open']), 
-                                                                            float(forecast['daily']['snowfall_sum'][i]))
+                                                                            weather.cm_to_inch(float(forecast['daily']['snowfall_sum'][i])))
 
         # create a dataframe from the dictionary and add it to the list of records
         forecast_record = pd.DataFrame()

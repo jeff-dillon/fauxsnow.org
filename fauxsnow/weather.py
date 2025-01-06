@@ -59,7 +59,7 @@ def get_historic(forecast):
                                     float(forecast['daily']['temperature_2m_min'][i]), 
                                     forecast['daily']['weathercode'][i], 
                                     int(forecast['resort_open']), 
-                                    float(forecast['daily']['snowfall_sum'][i])))
+                                    cm_to_inch(float(forecast['daily']['snowfall_sum'][i]))))
     return fs.count('faux')
 
 
@@ -142,9 +142,6 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
     NOTHING = '-'
     return_value = NOTHING
 
-    if(not resort_open):
-        return return_value
-
     # weather codes
     snow_codes = [71, 73, 75, 77, 85, 86]
     icy_codes = [56, 57, 66, 67]
@@ -166,12 +163,15 @@ def get_fs_conditions(dewpoint: float, max_temp: float, min_temp: float, weather
         return_value = FAUX
 
     # if the forecast is snow or the accumulation is more than .25: SNOW
-    if(is_snowing or snowfall_sum >= 0.25):
+    elif(is_snowing or (snowfall_sum >= 0.25)):
         return_value = SNOW
 
     # if it is sleeting or raining or the temp is >= 40: ICY
-    if((is_sleeting or is_raining or is_warm) and resort_open):
+    elif(((is_sleeting or is_raining) and is_warm) and resort_open):
         return_value = ICY
+
+    else:
+        return_value = NOTHING
 
     return return_value
 
